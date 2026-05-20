@@ -1,0 +1,1889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malora — Content Strategy 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&family=Cairo:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --obsidian: #0B1120;
+  --obsidian-soft: #111827;
+  --emerald: #10B981;
+  --emerald-dim: #059669;
+  --emerald-light: #D1FAE5;
+  --emerald-pale: #F0FDF9;
+  --white: #FFFFFF;
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-200: #E5E7EB;
+  --gray-400: #9CA3AF;
+  --gray-600: #4B5563;
+  --gray-700: #374151;
+  --gray-900: #111827;
+  --amber-50: #FFFBEB;
+  --amber-100: #FEF3C7;
+  --amber-800: #92400E;
+  --red-50: #FEF2F2;
+  --red-600: #DC2626;
+  --font-display: 'DM Serif Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-arabic: 'Cairo', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--gray-50);
+  color: var(--gray-900);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── PRINT ── */
+@media print {
+  .no-print { display: none !important; }
+  .post-card { break-inside: avoid; }
+  body { background: white; }
+}
+
+/* ── COVER ── */
+.cover {
+  background: var(--obsidian);
+  color: var(--white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(16,185,129,0.08);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  width: 900px; height: 900px;
+  border-radius: 50%;
+  border: 1px solid rgba(16,185,129,0.04);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.cover-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--emerald);
+  box-shadow: 0 0 24px var(--emerald), 0 0 60px rgba(16,185,129,0.4);
+  margin: 0 auto 40px;
+}
+.cover-logo {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 8vw, 96px);
+  letter-spacing: -1px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.cover-tagline {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--emerald);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 48px;
+}
+.cover-title {
+  font-family: var(--font-display);
+  font-size: clamp(26px, 4vw, 42px);
+  color: var(--white);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.cover-sub {
+  color: var(--gray-400);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+.cover-date {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--emerald);
+  letter-spacing: 0.15em;
+  margin-top: 32px;
+  padding: 8px 20px;
+  border: 1px solid rgba(16,185,129,0.3);
+  border-radius: 100px;
+  display: inline-block;
+}
+
+/* ── LAYOUT ── */
+.page { max-width: 1000px; margin: 0 auto; padding: 0 32px; }
+
+/* ── SECTION ── */
+.section {
+  padding: 80px 0 40px;
+}
+.section-number {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--emerald);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--obsidian);
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+.section-divider {
+  width: 48px; height: 3px;
+  background: var(--emerald);
+  margin: 16px 0 32px;
+  border-radius: 2px;
+}
+
+/* ── PHASE BANNER ── */
+.phase-banner {
+  background: var(--obsidian);
+  border-radius: 12px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 40px;
+  border-left: 4px solid var(--emerald);
+}
+.phase-icon { font-size: 28px; flex-shrink: 0; margin-top: 2px; }
+.phase-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+.phase-dates {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--emerald);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+.phase-desc { color: var(--gray-400); font-size: 14px; line-height: 1.5; }
+
+/* ── POST CARD ── */
+.post-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+  margin-bottom: 32px;
+  border: 1px solid var(--gray-200);
+}
+
+.post-header {
+  background: var(--obsidian);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.post-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--emerald);
+  color: var(--obsidian);
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 100px;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.post-meta {
+  font-size: 12px;
+  color: var(--gray-400);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.post-meta-sep { color: rgba(255,255,255,0.15); }
+.post-platform {
+  color: var(--emerald);
+  font-weight: 500;
+}
+.lang-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--gray-400);
+}
+.account-badge {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 100px;
+  font-weight: 500;
+}
+.account-malora { background: rgba(16,185,129,0.15); color: var(--emerald); }
+.account-islam  { background: rgba(255,255,255,0.1); color: var(--white); }
+
+/* ── POST BODY ── */
+.post-body { padding: 0; }
+
+.post-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  border-bottom: 1px solid var(--gray-100);
+}
+.post-row:last-child { border-bottom: none; }
+
+.post-label {
+  padding: 20px 20px 20px 24px;
+  display: flex;
+  align-items: flex-start;
+  border-right: 1px solid var(--gray-100);
+}
+.post-label-text {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+  margin-top: 2px;
+  writing-mode: horizontal-tb;
+}
+
+.post-content { padding: 20px 24px; }
+
+/* Row-specific colors */
+.row-hook   .post-label { background: var(--emerald-pale); }
+.row-hook   .post-label-text { color: var(--emerald-dim); }
+.row-hook   .post-content { background: var(--emerald-pale); }
+
+.row-caption .post-label { background: var(--gray-50); }
+.row-caption .post-content { background: var(--gray-50); }
+
+.row-cta    .post-label { background: var(--emerald-light); }
+.row-cta    .post-label-text { color: var(--emerald-dim); }
+.row-cta    .post-content { background: var(--emerald-light); }
+
+.row-brief  .post-label { background: var(--amber-100); }
+.row-brief  .post-label-text { color: var(--amber-800); }
+.row-brief  .post-content { background: var(--amber-50); }
+
+/* ── TEXT STYLES ── */
+.hook-text {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--obsidian);
+  line-height: 1.4;
+}
+.hook-text-ar {
+  font-family: var(--font-arabic);
+  font-size: 20px;
+  color: var(--obsidian);
+  line-height: 1.6;
+  direction: rtl;
+  text-align: right;
+}
+
+.caption-en {
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.75;
+  white-space: pre-line;
+}
+.caption-ar {
+  font-family: var(--font-arabic);
+  font-size: 15px;
+  color: var(--gray-700);
+  line-height: 1.9;
+  direction: rtl;
+  text-align: right;
+  white-space: pre-line;
+}
+.caption-slide {
+  font-size: 13px;
+  color: var(--gray-600);
+  line-height: 1.75;
+  white-space: pre-line;
+  border-left: 3px solid var(--gray-200);
+  padding-left: 14px;
+  margin-top: 12px;
+}
+.caption-slide-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--emerald);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.cta-en {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--emerald-dim);
+}
+.cta-ar {
+  font-family: var(--font-arabic);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--emerald-dim);
+  direction: rtl;
+  text-align: right;
+}
+
+.brief-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--amber-800);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.brief-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: var(--gray-700);
+  line-height: 1.5;
+}
+.brief-key {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--amber-800);
+  font-weight: 600;
+  min-width: 80px;
+  padding-top: 2px;
+  flex-shrink: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ── TABLES ── */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 14px;
+}
+.data-table th {
+  background: var(--obsidian);
+  color: var(--white);
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+.data-table td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--gray-100);
+  color: var(--gray-700);
+  vertical-align: top;
+}
+.data-table tr:nth-child(even) td { background: var(--gray-50); }
+.data-table tr:hover td { background: var(--emerald-pale); }
+.td-mono { font-family: var(--font-mono); font-size: 12px; }
+.td-green { color: var(--emerald-dim); font-weight: 600; }
+.td-bold { font-weight: 600; color: var(--obsidian); }
+.td-muted { color: var(--gray-400); font-size: 13px; }
+.td-ar { font-family: var(--font-arabic); direction: rtl; text-align: right; }
+.td-center { text-align: center; }
+
+/* ── PILLARS GRID ── */
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+.pillar-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 18px 14px;
+  text-align: center;
+}
+.pillar-num {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--emerald);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.pillar-name {
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--obsidian);
+  margin-bottom: 6px;
+}
+.pillar-pct {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--emerald-dim);
+  background: var(--emerald-light);
+  border-radius: 100px;
+  padding: 2px 8px;
+  display: inline-block;
+}
+
+/* ── ACCOUNT SPLIT ── */
+.account-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+.account-card {
+  border-radius: 12px;
+  padding: 24px;
+  border: 1px solid var(--gray-200);
+}
+.account-card.malora { background: var(--obsidian); }
+.account-card.islam  { background: var(--white); }
+.account-card-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  margin-bottom: 16px;
+}
+.malora .account-card-name { color: var(--emerald); }
+.islam  .account-card-name { color: var(--obsidian); }
+.account-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+.malora .account-row { color: var(--gray-400); }
+.islam  .account-row { color: var(--gray-600); }
+.account-dot { color: var(--emerald); flex-shrink: 0; margin-top: 1px; }
+
+/* ── COLORS SHOWCASE ── */
+.colors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+.color-swatch {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--gray-200);
+}
+.swatch-block { height: 60px; }
+.swatch-info {
+  padding: 10px 12px;
+  background: var(--white);
+}
+.swatch-name { font-weight: 600; font-size: 13px; color: var(--obsidian); }
+.swatch-hex  { font-family: var(--font-mono); font-size: 11px; color: var(--gray-400); }
+.swatch-use  { font-size: 11px; color: var(--gray-500); margin-top: 2px; }
+
+/* ── RULES LIST ── */
+.rules-list {
+  list-style: none;
+  margin: 16px 0;
+}
+.rules-list li {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 14px;
+  color: var(--gray-700);
+  line-height: 1.5;
+}
+.rules-list li::before {
+  content: '—';
+  color: var(--emerald);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── CHECKLIST ── */
+.checklist {
+  list-style: none;
+  margin: 16px 0;
+}
+.checklist li {
+  display: flex;
+  gap: 12px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--gray-100);
+  font-size: 14px;
+  color: var(--gray-700);
+}
+.check-box {
+  width: 18px; height: 18px;
+  border: 1.5px solid var(--gray-300);
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── HASHTAG BOXES ── */
+.hashtag-group { margin-bottom: 20px; }
+.hashtag-platform {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--emerald);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.hashtag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.hashtag {
+  font-size: 13px;
+  padding: 4px 12px;
+  background: var(--gray-100);
+  border-radius: 100px;
+  color: var(--gray-700);
+  border: 1px solid var(--gray-200);
+}
+.hashtag-ar {
+  font-family: var(--font-arabic);
+  font-size: 13px;
+  direction: rtl;
+}
+
+/* ── TIMING TABLE ── */
+.time-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+.time-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  padding: 18px;
+}
+.time-platform {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--emerald-dim);
+  margin-bottom: 10px;
+}
+.time-row { font-size: 13px; color: var(--gray-600); margin-bottom: 5px; }
+.time-label { color: var(--gray-400); font-size: 11px; }
+
+/* ── FOOTER ── */
+.doc-footer {
+  background: var(--obsidian);
+  color: var(--gray-400);
+  text-align: center;
+  padding: 40px;
+  margin-top: 80px;
+  font-size: 13px;
+}
+.doc-footer strong { color: var(--emerald); font-family: var(--font-display); font-size: 18px; display: block; margin-bottom: 8px; }
+
+/* ── PRINT BUTTON ── */
+.print-btn {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  background: var(--emerald);
+  color: var(--obsidian);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 100px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(16,185,129,0.4);
+  z-index: 100;
+  font-family: var(--font-body);
+}
+.print-btn:hover { background: var(--emerald-dim); }
+
+/* ── DIVIDER ── */
+hr.section-hr {
+  border: none;
+  border-top: 1px solid var(--gray-200);
+  margin: 60px 0;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+  .account-split { grid-template-columns: 1fr; }
+  .colors-grid { grid-template-columns: repeat(2, 1fr); }
+  .time-grid { grid-template-columns: 1fr; }
+  .post-row { grid-template-columns: 80px 1fr; }
+  .page { padding: 0 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ COVER ══════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-dot"></div>
+  <div class="cover-logo">MALORA</div>
+  <div class="cover-tagline">Legal · Tech · Intelligence</div>
+  <div class="cover-title">Full Content Strategy &amp; Post Playbook</div>
+  <div class="cover-sub">Instagram · LinkedIn · Facebook</div>
+  <div class="cover-sub">Teaser: May 25 &nbsp;→&nbsp; Official Launch: June 1, 2026</div>
+  <div class="cover-date">Islam Nour × Malora AI · May 2026</div>
+</div>
+
+<button class="print-btn no-print" onclick="window.print()">🖨 Save as PDF</button>
+
+<!-- ══ SECTION 1 — STRATEGY ════════════════════════════════ -->
+<div class="page">
+<section class="section">
+  <div class="section-number">Section 01</div>
+  <h1 class="section-title">Strategy Overview</h1>
+  <div class="section-divider"></div>
+
+  <p style="color:var(--gray-600); max-width:680px; margin-bottom:40px; font-size:15px; line-height:1.75;">
+    Three phases. Two accounts. One outcome: position Malora as the authoritative Arabic-language legal document engine — not a chatbot, not generic AI. At the same time, Islam Nour builds his personal brand as the founder who turned expertise into a product — which directly feeds the <strong>One Man Company</strong> course.
+  </p>
+
+  <h2 style="font-family:var(--font-display); font-size:22px; color:var(--obsidian); margin-bottom:20px;">Two Accounts — One Strategy</h2>
+  <div class="account-split">
+    <div class="account-card malora">
+      <div class="account-card-name">🟢 Malora Account</div>
+      <div class="account-row"><span class="account-dot">→</span> Voice: authoritative, premium, institutional</div>
+      <div class="account-row"><span class="account-dot">→</span> Content: product, education, proof</div>
+      <div class="account-row"><span class="account-dot">→</span> Language: Arabic (primary)</div>
+      <div class="account-row"><span class="account-dot">→</span> Posts: Mon + Wed + Fri</div>
+    </div>
+    <div class="account-card islam">
+      <div class="account-card-name">👤 Islam Nour (Personal)</div>
+      <div class="account-row"><span class="account-dot">→</span> Voice: honest, founder, real-person</div>
+      <div class="account-row"><span class="account-dot">→</span> Content: journey, lessons, One Man Company</div>
+      <div class="account-row"><span class="account-dot">→</span> Language: English (primary) + some Arabic</div>
+      <div class="account-row"><span class="account-dot">→</span> Posts: Tue + Thu</div>
+    </div>
+  </div>
+
+  <h2 style="font-family:var(--font-display); font-size:22px; color:var(--obsidian); margin:36px 0 20px;">Content Pillars</h2>
+  <div class="pillars-grid">
+    <div class="pillar-card">
+      <div class="pillar-num">1</div>
+      <div class="pillar-name">Education</div>
+      <div class="td-muted" style="font-size:12px; margin-bottom:8px;">NPV, Zakat, bank standards</div>
+      <span class="pillar-pct">30%</span>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">2</div>
+      <div class="pillar-name">Proof</div>
+      <div class="td-muted" style="font-size:12px; margin-bottom:8px;">Real docs, results, bank approval</div>
+      <span class="pillar-pct">25%</span>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">3</div>
+      <div class="pillar-name">Behind the Scenes</div>
+      <div class="td-muted" style="font-size:12px; margin-bottom:8px;">Building Malora, founder journey</div>
+      <span class="pillar-pct">20%</span>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">4</div>
+      <div class="pillar-name">Direct Promo</div>
+      <div class="td-muted" style="font-size:12px; margin-bottom:8px;">Prices, CTA, services</div>
+      <span class="pillar-pct">15%</span>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-num">5</div>
+      <div class="pillar-name">One Man Co.</div>
+      <div class="td-muted" style="font-size:12px; margin-bottom:8px;">AI-powered solo business</div>
+      <span class="pillar-pct">10%</span>
+    </div>
+  </div>
+</section>
+
+<hr class="section-hr">
+
+<!-- ══ SECTION 2 — TEASER ══════════════════════════════════ -->
+<section class="section">
+  <div class="section-number">Section 02</div>
+  <h1 class="section-title">Phase 1 — Teaser Campaign</h1>
+  <div class="section-divider"></div>
+
+  <div class="phase-banner">
+    <div class="phase-icon">👁</div>
+    <div>
+      <div class="phase-name">Teaser Phase</div>
+      <div class="phase-dates">MAY 25 → MAY 31, 2026 · 7 DAYS · 7 POSTS</div>
+      <div class="phase-desc">Build suspense. No product name revealed until Day 6. Brand identity before the product.</div>
+    </div>
+  </div>
+
+  <!-- POST 01 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 01</span>
+      <div class="post-meta">
+        <span>Sun May 25 · 9:00 AM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram + Facebook + LinkedIn</span>
+        <span class="post-meta-sep">|</span>
+        <span>Static Image</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content">
+          <p class="hook-text-ar">شيء يُغيّر طريقة عملك لا يحتاج إلى إعلان كبير. يكفي أن ترى النتيجة.</p>
+        </div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <p class="caption-ar">في مصر، كل صاحب مشروع احتاج يوماً ورقة رسمية.
+بنك. جهاز حكومي. شريك.
+الورقة أخذت أسابيع وآلاف الجنيهات.
+
+ما كانش المفروض يكون كده.
+
+قريباً — شيء مختلف.</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content">
+          <p class="cta-ar">تابع الحساب — الإطلاق قريب جداً 👁</p>
+        </div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief — for your designer</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1:1 Instagram · 4:5 Facebook · 1.91:1 LinkedIn</div>
+          <div class="brief-item"><span class="brief-key">Background</span>Deep Obsidian #0B1120 — full bleed, no texture</div>
+          <div class="brief-item"><span class="brief-key">Main visual</span>Single small glowing green dot (#10B981) centered — like a radar blip. No other elements.</div>
+          <div class="brief-item"><span class="brief-key">Text</span>One Arabic word at the bottom: <strong>"قريباً"</strong> — white, thin font weight, centered</div>
+          <div class="brief-item"><span class="brief-key">Logo</span>Hidden — do NOT show any Malora branding yet</div>
+          <div class="brief-item"><span class="brief-key">Mood</span>Luxury mystery. Not a corporate ad. Think luxury fashion teaser.</div>
+          <div class="brief-item"><span class="brief-key">Rules</span>No gradients. No decorative elements. No emoji in the graphic.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 02 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 02</span>
+      <div class="post-meta">
+        <span>Mon May 26 · 7:00 PM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram Carousel + LinkedIn</span>
+        <span class="post-meta-sep">|</span>
+        <span>Carousel — 5 Slides</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content">
+          <p class="hook-text-ar">5 أسباب تخلّي دراسة الجدوى ترفض من البنك</p>
+        </div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <div class="caption-slide-label">Slide content (Arabic)</div>
+          <div class="caption-slide">
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 1:</strong> العنوان — استخدم الـ hook بالأعلى</p>
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 2:</strong> مفيش NPV و IRR محسوبين صح</p>
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 3:</strong> الإسقاطات المالية مش واقعية</p>
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 4:</strong> مفيش تحليل DSCR</p>
+            <p class="caption-ar"><strong>Slide 5:</strong> التقرير مش على المعيار البنكي — وده تحديداً على وشك يتغير ⏳</p>
+          </div>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content">
+          <p class="cta-ar">شاركها لأي صاحب مشروع بيفكر في تمويل 🔁</p>
+        </div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1:1 carousel · 5 slides</div>
+          <div class="brief-item"><span class="brief-key">Slide 1</span>Obsidian background · Giant "5" in Emerald as decorative BG element · Arabic title in white on top</div>
+          <div class="brief-item"><span class="brief-key">Slides 2–4</span>Light gray #F3F4F6 background · Small red ✕ icon top-right · Arabic problem text · thin green line bottom</div>
+          <div class="brief-item"><span class="brief-key">Slide 5</span>Obsidian background · "الحل قادم" in Emerald · countdown "6 days" · tiny dot only — no full logo</div>
+          <div class="brief-item"><span class="brief-key">Mood</span>Educational builds to suspense</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 03 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 03</span>
+      <div class="post-meta">
+        <span>Tue May 27 · 8:00 AM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">LinkedIn</span>
+        <span class="post-meta-sep">|</span>
+        <span>Text Post + Personal Photo</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-islam">👤 Islam</span>
+        <span class="lang-badge">🌐 English</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content">
+          <p class="hook-text">I decided to build a tool that solves a problem I was seeing every single day.</p>
+        </div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <p class="caption-en">As a business advisor, I watched too many promising projects fail — not because of the idea.
+
+Because of a document.
+
+A weak feasibility study. A missing Zakat declaration. A financial report that didn't meet bank standards.
+
+I decided to fix this with AI. Not as a developer. As a businessman who understood the problem from the inside.
+
+The result is MALORA — launching this week.
+
+This is just the beginning of the conversation.</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content">
+          <p class="cta-en">Follow @malora.ai — share this with any founder who needs to hear it.</p>
+        </div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1.91:1 LinkedIn standard</div>
+          <div class="brief-item"><span class="brief-key">Photo</span>Professional photo of Islam Nour — half-body, business casual, neutral or office background</div>
+          <div class="brief-item"><span class="brief-key">Overlay</span>Subtle "MALORA" text in bottom-left corner in Emerald — small, not dominant</div>
+          <div class="brief-item"><span class="brief-key">Mood</span>Founder authenticity — human, not polished corporate. The photo IS the design.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 04 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 04</span>
+      <div class="post-meta">
+        <span>Wed May 28 · 6:00 PM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram + Facebook</span>
+        <span class="post-meta-sep">|</span>
+        <span>Carousel — 4 Slides</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content">
+          <p class="hook-text-ar">كيف تحسب زكاة شركتك؟ (الطريقة الصحيحة)</p>
+        </div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <div class="caption-slide-label">Slide content (Arabic)</div>
+          <div class="caption-slide">
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 1:</strong> هل عارف إن الزكاة مش بس على الفلوس النقدية؟</p>
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 2:</strong> المخزون + المدينون + الأصول المتداولة − الخصوم الحالة = وعاء الزكاة</p>
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 3:</strong> النصاب الحالي = 85 جرام ذهب عيار 24</p>
+            <p class="caption-ar"><strong>Slide 4:</strong> فيه طريقة دلوقتي أسرع وأدق — قريباً 🟢</p>
+          </div>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-ar">احفظ البوست — هتحتاجه 🔖</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1:1 carousel · 4 slides</div>
+          <div class="brief-item"><span class="brief-key">Slides 1–3</span>White background · Large clear Arabic text · Simple icons (gold, inventory, scale) · Emerald divider between slides</div>
+          <div class="brief-item"><span class="brief-key">Slide 4</span>Obsidian background · single glowing Emerald dot · "قريباً" in white</div>
+          <div class="brief-item"><span class="brief-key">Mood</span>Educational, trustworthy — one idea per slide, no clutter</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 05 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 05</span>
+      <div class="post-meta">
+        <span>Thu May 29 · 12:00 PM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram Stories + Facebook Stories</span>
+        <span class="post-meta-sep">|</span>
+        <span>Story — Poll</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text-ar">أيهما أهم لك دلوقتي؟</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <p class="caption-ar">استطلاع:
+خيار أ: دراسة جدوى احترافية
+خيار ب: إقرار زكاة رسمي
+
+النتيجة تُعلَن في اليوم التالي.</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-ar">صوّت وشارك 🗳</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Format</span>9:16 vertical Story</div>
+          <div class="brief-item"><span class="brief-key">Background</span>Obsidian</div>
+          <div class="brief-item"><span class="brief-key">Top</span>Malora green dot only — small logo hint</div>
+          <div class="brief-item"><span class="brief-key">Poll buttons</span>A = Emerald filled · B = White outlined with border</div>
+          <div class="brief-item"><span class="brief-key">Bottom</span>"24 ساعة على الإطلاق" in small Emerald text</div>
+          <div class="brief-item"><span class="brief-key">Tip</span>Use Instagram native Poll sticker if possible for real interaction</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 06 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 06</span>
+      <div class="post-meta">
+        <span>Fri May 30 · 9:00 AM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram + Facebook + LinkedIn</span>
+        <span class="post-meta-sep">|</span>
+        <span>Static Image — First Name Reveal</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text-ar">النتيجة كانت متوقعة — لكن الحل مش متوقع</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <p class="caption-ar">كتير منكم اختاروا [أ أو ب — حسب نتيجة الاستطلاع الفعلية].
+
+وده بالظبط اللي بنيت عليه MALORA.
+
+بكره — الإطلاق الرسمي.
+للي في القائمة: هيتوصلهم أول.
+للبقية: الرابط يفتح 1 يونيو الساعة 9 صباحاً.</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-ar">سجّل دلوقتي — رابط في البايو 🔗</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief — First Reveal!</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1:1 + 9:16 story version</div>
+          <div class="brief-item"><span class="brief-key">Main visual</span>Poll result as circular progress ring in Emerald (e.g. 68% / 32%) — dynamic and visual</div>
+          <div class="brief-item"><span class="brief-key">Key moment</span>"MALORA" full name appears for the FIRST TIME, clear and centered below the ring</div>
+          <div class="brief-item"><span class="brief-key">Note</span>Update the real poll percentage before publishing</div>
+          <div class="brief-item"><span class="brief-key">Mood</span>First partial reveal — name shown but mystery remains about what it does</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 07 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 07</span>
+      <div class="post-meta">
+        <span>Sat May 31 · 10:00 PM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram + Facebook + LinkedIn</span>
+        <span class="post-meta-sep">|</span>
+        <span>Reel / Short Video — 30 sec</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text-ar">غداً — MALORA تطلق رسمياً</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Script</div></div>
+        <div class="post-content">
+          <div class="caption-slide-label">Video Script — 30 seconds</div>
+          <div class="caption-slide">
+            <p class="caption-en">[0–3s] &nbsp; Black screen. Green dot appears slowly from nothing.<br>
+[3–10s] &nbsp;Arabic text fades in: "دراسة جدوى — 80 صفحة — في دقائق"<br>
+[10–18s] Arabic text: "إقرار زكاة — شرعي — معتمد — مرقّم"<br>
+[18–25s] Full Malora logo reveals with a soft glow<br>
+[25–30s] "1 يونيو — الساعة 9 صباحاً — malora.ai"</p>
+          </div>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-ar">اضبط منبّه — الساعة 9 صباحاً ⏰</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Format</span>9:16 Reel primary · also export 16:9 for LinkedIn</div>
+          <div class="brief-item"><span class="brief-key">Style</span>Motion graphics — no human voice, no face on screen</div>
+          <div class="brief-item"><span class="brief-key">Background</span>Obsidian throughout entire video</div>
+          <div class="brief-item"><span class="brief-key">Animation</span>Text fade-in white · key numbers in Emerald · Logo reveal at end</div>
+          <div class="brief-item"><span class="brief-key">Music</span>Calm focused instrumental — no lyrics, no vocals</div>
+          <div class="brief-item"><span class="brief-key">Tools</span>CapCut / After Effects / Canva Pro animation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-hr">
+
+<!-- ══ SECTION 3 — LAUNCH WEEK ════════════════════════════ -->
+<section class="section">
+  <div class="section-number">Section 03</div>
+  <h1 class="section-title">Phase 2 — Launch Week</h1>
+  <div class="section-divider"></div>
+
+  <div class="phase-banner">
+    <div class="phase-icon">🚀</div>
+    <div>
+      <div class="phase-name">Launch Week</div>
+      <div class="phase-dates">JUNE 1 → JUNE 7, 2026 · 7 DAYS · 7 POSTS</div>
+      <div class="phase-desc">Both accounts fire together on Day 1. Clarity replaces mystery. The product is the hero.</div>
+    </div>
+  </div>
+
+  <!-- POST 08 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 08</span>
+      <div class="post-meta">
+        <span>Mon June 1 · 9:00 AM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram + Facebook + LinkedIn</span>
+        <span class="post-meta-sep">|</span>
+        <span>Static Image — Official Launch</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text-ar">MALORA — رسمياً متاحة الآن</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <p class="caption-ar">مالورا مش برنامج دردشة.
+مالورا محرك توليد مستندات احترافية.
+
+أدخل بياناتك — واستلم:
+
+✦ دراسة جدوى اقتصادية كاملة (80+ صفحة)
+   معايير بنكية · NPV / IRR / DSCR
+
+✦ إقرار زكاة المال — شرعي — مرقّم — جاهز للمراجع
+
+مصر: من 300 جنيه
+الخليج: من $50
+
+الرابط في البايو.</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-ar">ابدأ الآن — malora.ai 🟢</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief — THE HERO POST</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1:1 + 9:16 Story + 1.91:1 LinkedIn — design all three</div>
+          <div class="brief-item"><span class="brief-key">Background</span>Deep Obsidian — full bleed</div>
+          <div class="brief-item"><span class="brief-key">Center</span>Full Malora logo — large, dominant, confident</div>
+          <div class="brief-item"><span class="brief-key">Below logo</span>"Legal · Tech · Intelligence" in Emerald, spaced lettering</div>
+          <div class="brief-item"><span class="brief-key">Separator</span>Thin solid Emerald horizontal line — NO gradient</div>
+          <div class="brief-item"><span class="brief-key">Bottom</span>"متاح الآن  —  malora.ai" in white</div>
+          <div class="brief-item"><span class="brief-key">Mood</span>Royal announcement. Powerful. Zero clutter. This is the most important design in the campaign.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 09 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 09</span>
+      <div class="post-meta">
+        <span>Mon June 1 · 12:00 PM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">LinkedIn</span>
+        <span class="post-meta-sep">|</span>
+        <span>Long Text + Photo</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-islam">👤 Islam</span>
+        <span class="lang-badge">🌐 English</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text">Today I launched MALORA. Here's what I learned building it.</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <p class="caption-en">Six months ago I started asking a simple question:
+
+Why does a small business owner pay 5,000 EGP for a feasibility study that AI can generate in minutes?
+
+I wasn't looking for a technical answer. I was looking for a business answer.
+
+I'm not a developer. I'm a business advisor who understood the problem from years inside it.
+
+So I built Malora.
+
+Today it's live.
+
+But this post isn't really about Malora.
+
+It's about the method — how one person with no coding background can build, launch, and operate a full AI product by understanding the problem better than anyone else.
+
+That method is what I'll be teaching in my One Man Company course — coming soon.
+
+Today: try Malora.
+Soon: learn how to build your own.</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-en">Link in first comment. Try it now.</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1.91:1 LinkedIn</div>
+          <div class="brief-item"><span class="brief-key">Photo</span>Islam Nour at desk or standing — laptop visible, natural lighting, authentic</div>
+          <div class="brief-item"><span class="brief-key">Overlay</span>"MALORA — Live Today" small badge in bottom corner, Emerald background</div>
+          <div class="brief-item"><span class="brief-key">Mood</span>Founder milestone — real, not a corporate ad</div>
+          <div class="brief-item"><span class="brief-key">LinkedIn tip</span>Put the malora.ai link in the FIRST COMMENT — not in post body (LinkedIn suppresses reach for external links in post)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 10 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 10</span>
+      <div class="post-meta">
+        <span>Tue June 2 · 7:00 PM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram Reel + Facebook Video</span>
+        <span class="post-meta-sep">|</span>
+        <span>Demo Video — 45–60 sec</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text-ar">شاهد مالورا تولّد دراسة جدوى كاملة في أقل من دقيقتين</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Script</div></div>
+        <div class="post-content">
+          <div class="caption-slide-label">Video Script</div>
+          <div class="caption-slide">
+            <p class="caption-en">[0–3s] &nbsp; Screen on product. Arabic text: "هذه دراسة جدوى 80 صفحة. ستُولَد أمامك الآن."<br>
+[3–15s] &nbsp;Screen recording: filling the form<br>
+[15–35s] Screen recording: document generating in real time<br>
+[35–50s] Scroll through output: NPV table, financial projections, cover page<br>
+[50–60s] End screen: "malora.ai — ابدأ الآن"</p>
+          </div>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-ar">جرّب مجاناً — رابط في البايو 🔗</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Format</span>9:16 Reel primary · also 16:9 for Facebook</div>
+          <div class="brief-item"><span class="brief-key">Type</span>Real screen recording — NOT animation or mockup</div>
+          <div class="brief-item"><span class="brief-key">Captions</span>Arabic subtitles throughout · Key terms in Emerald highlight: NPV, DSCR, إقرار الزكاة</div>
+          <div class="brief-item"><span class="brief-key">Music</span>Light background instrumental — no vocals</div>
+          <div class="brief-item"><span class="brief-key">Tools</span>Record with Loom or OBS · Edit in CapCut</div>
+          <div class="brief-item"><span class="brief-key">Important</span>Show REAL output document pages — credibility comes from the actual product</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 11 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 11</span>
+      <div class="post-meta">
+        <span>Wed June 3 · 9:00 AM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram Carousel + LinkedIn</span>
+        <span class="post-meta-sep">|</span>
+        <span>Carousel — 6 Slides</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text-ar">هكذا يبدو إقرار الزكاة الذي تولّده مالورا</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Slides</div></div>
+        <div class="post-content">
+          <div class="caption-slide-label">Slide content (Arabic)</div>
+          <div class="caption-slide">
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 1:</strong> وثيقة شرعية — رسمية — مرقّمة</p>
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 2:</strong> صفحة بيانات العميل (blur الحقول الحساسة)</p>
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 3:</strong> جدول الأصول والخصوم</p>
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 4:</strong> حساب النصاب (85 جرام ذهب × سعر الجرام)</p>
+            <p class="caption-ar" style="margin-bottom:8px;"><strong>Slide 5:</strong> نتيجة وعاء الزكاة والمبلغ المستحق</p>
+            <p class="caption-ar"><strong>Slide 6:</strong> رقم التقرير ZAK + ختم مالورا + "جاهز للمراجع المحاسبي"</p>
+          </div>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-ar">اطلب تقريرك — من 300 جنيه فقط 📋</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1:1 carousel · 6 slides</div>
+          <div class="brief-item"><span class="brief-key">Content</span>Real screenshots from actual ZAK document — blur all private data</div>
+          <div class="brief-item"><span class="brief-key">Frame</span>Each slide has a thin Emerald border as frame</div>
+          <div class="brief-item"><span class="brief-key">Badge</span>Small top-right badge reading "نموذج حقيقي" on slides 2–5</div>
+          <div class="brief-item"><span class="brief-key">Slide 1</span>Obsidian background · white title</div>
+          <div class="brief-item"><span class="brief-key">Slides 2–5</span>White background · document screenshot prominent</div>
+          <div class="brief-item"><span class="brief-key">Slide 6</span>Obsidian background · ZAK number + Malora stamp visible</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 12 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 12</span>
+      <div class="post-meta">
+        <span>Thu June 4 · 8:00 AM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">LinkedIn + Instagram</span>
+        <span class="post-meta-sep">|</span>
+        <span>Text + Infographic</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-islam">👤 Islam</span>
+        <span class="lang-badge">🌐 English</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text">How does one person run a full company in 2026? (What building Malora taught me)</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <p class="caption-en">Everyone asks: "How did you build Malora alone?"
+
+The answer isn't technical. The answer is a methodology:
+
+1. Identify a real problem you already understand deeply
+2. Find the AI layer that solves exactly that problem
+3. Build the first version without a development team
+4. Launch into the market you already know
+
+That's the One Man Company framework.
+
+It doesn't mean you work alone forever.
+It means you think like a complete business from day one.
+
+Malora is my proof of concept.
+
+The course is coming — who wants to know when it drops?</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-en">Comment "I'm in" below 👇</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1.91:1 LinkedIn · also 1:1 for Instagram</div>
+          <div class="brief-item"><span class="brief-key">Type</span>Simple infographic — 4 numbered steps, vertical layout</div>
+          <div class="brief-item"><span class="brief-key">Step numbers</span>Emerald circle · white number inside</div>
+          <div class="brief-item"><span class="brief-key">Background</span>White — clean and educational</div>
+          <div class="brief-item"><span class="brief-key">Bottom</span>"One Man Company — Course Coming Soon" + Islam Nour name</div>
+          <div class="brief-item"><span class="brief-key">Mood</span>Educational, practical — this post builds the course waitlist without hard selling</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 13 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 13</span>
+      <div class="post-meta">
+        <span>Fri June 5 · 10:00 AM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">LinkedIn + Instagram</span>
+        <span class="post-meta-sep">|</span>
+        <span>Static Image</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🌐 English</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text">Zakat in Saudi Arabia is not optional. Is your declaration ready?</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <p class="caption-en">ZATCA — the Zakat, Tax and Customs Authority — requires official documentation.
+
+Malora generates a Zakat declaration that is:
+✦ Shariah-compliant and accounting-ready
+✦ Officially numbered (ZAK-XXXXXX format)
+✦ Complete with asset and liability tables
+✦ Ready for your auditor
+
+From $50. Delivered instantly.
+
+Available now — Egypt and all Gulf markets.</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-en">Request your report — malora.ai</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1.91:1 LinkedIn primary · 1:1 Instagram square</div>
+          <div class="brief-item"><span class="brief-key">Layout</span>Split design — two halves</div>
+          <div class="brief-item"><span class="brief-key">Right half</span>Saudi Arabia map shape as solid Emerald fill</div>
+          <div class="brief-item"><span class="brief-key">Left half</span>4 bullet points on Obsidian background, white text</div>
+          <div class="brief-item"><span class="brief-key">Top</span>Malora logo + "Zakat Declaration — KSA" label</div>
+          <div class="brief-item"><span class="brief-key">Target</span>Compliance officers, accountants, CFOs in KSA/Gulf</div>
+          <div class="brief-item"><span class="brief-key">Mood</span>Institutional, compliance-focused, professional</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST 14 -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">POST 14</span>
+      <div class="post-meta">
+        <span>Sun June 7 · 6:00 PM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram + Facebook + LinkedIn</span>
+        <span class="post-meta-sep">|</span>
+        <span>Quote Card — Testimonial</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text-ar">"استلمت دراسة جدوى كاملة في 10 دقائق. البنك قبلها من أول مرة."</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <p class="caption-ar">أول عملاء مالورا بيتكلموا.
+
+ده اللي بيحصل لما تجمع الخبرة القانونية مع الذكاء الاصطناعي.
+
+مش دردشة. مش ردود عشوائية.
+مستند احترافي يصدر عن محرك مُبرمج على المعايير البنكية المصرية والخليجية.
+
+جرّب دلوقتي.</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-ar">ابدأ دراستك — malora.ai 🟢</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1:1 + 9:16 story version</div>
+          <div class="brief-item"><span class="brief-key">Background</span>Light gray #F3F4F6</div>
+          <div class="brief-item"><span class="brief-key">Quote mark</span>Large decorative Emerald quotation mark — top-left</div>
+          <div class="brief-item"><span class="brief-key">Quote text</span>Arabic, elegant serif-style font, centered, prominent</div>
+          <div class="brief-item"><span class="brief-key">Attribution</span>"عميل من القاهرة" (or real name if client approves) + specialty label</div>
+          <div class="brief-item"><span class="brief-key">Bottom</span>Malora logo</div>
+          <div class="brief-item"><span class="brief-key">Mood</span>Clean social proof — let the words carry the weight</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-hr">
+
+<!-- ══ SECTION 4 — ONGOING ══════════════════════════════════ -->
+<section class="section">
+  <div class="section-number">Section 04</div>
+  <h1 class="section-title">Ongoing Weekly Templates</h1>
+  <div class="section-divider"></div>
+
+  <div class="phase-banner">
+    <div class="phase-icon">🔁</div>
+    <div>
+      <div class="phase-name">Evergreen Phase</div>
+      <div class="phase-dates">JUNE 8, 2026 ONWARD · 3–4 POSTS PER WEEK</div>
+      <div class="phase-desc">Repeat formats with fresh content. Sustain awareness, drive conversions.</div>
+    </div>
+  </div>
+
+  <h2 style="font-family:var(--font-display); font-size:20px; color:var(--obsidian); margin:0 0 16px;">Weekly Posting Rhythm</h2>
+  <table class="data-table" style="margin-bottom:40px;">
+    <thead><tr><th>Day</th><th>Malora Account</th><th>Islam Account</th><th>Format</th></tr></thead>
+    <tbody>
+      <tr><td class="td-bold">Monday</td><td>Weekly education carousel</td><td>—</td><td class="td-muted">Arabic carousel</td></tr>
+      <tr><td class="td-bold">Tuesday</td><td>—</td><td>Behind the scenes / One Man Company</td><td class="td-muted">English LinkedIn text</td></tr>
+      <tr><td class="td-bold">Wednesday</td><td>Product feature or proof</td><td>—</td><td class="td-muted">Arabic reel or carousel</td></tr>
+      <tr><td class="td-bold">Thursday</td><td>—</td><td>Lesson or opinion post</td><td class="td-muted">English or mixed</td></tr>
+      <tr><td class="td-bold">Friday</td><td>Direct promo — CTA</td><td>—</td><td class="td-muted">Arabic static image</td></tr>
+    </tbody>
+  </table>
+
+  <!-- TEMPLATE A -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">TEMPLATE A</span>
+      <div class="post-meta">
+        <span>Every Monday · 7:00 PM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram Carousel + Facebook</span>
+        <span class="post-meta-sep">|</span>
+        <span>Repeating weekly series</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text-ar">سلسلة "اعرف حقوقك المالية" — الحلقة X</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Topics</div></div>
+        <div class="post-content">
+          <p style="font-size:13px; color:var(--gray-500); margin-bottom:10px;">Rotate these topics weekly — one per carousel:</p>
+          <p class="caption-ar">— ما الفرق بين NPV و IRR؟
+— متى تقدم دراسة الجدوى للبنك وليس للمستثمر؟
+— كيف تحسب نصاب الزكاة للمخزون السلعي؟
+— ما هو DSCR ولماذا يهم البنك؟
+— الفرق بين الزكاة الهجرية والميلادية في النسبة</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-ar">احفظ هذا البوست — ستحتاجه 🔖</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief — Design ONCE, reuse every week</div>
+          <div class="brief-item"><span class="brief-key">Slide 1</span>Badge top-right "الحلقة X" in Emerald · Large question title on Obsidian background</div>
+          <div class="brief-item"><span class="brief-key">Slides 2–N</span>Gray background · Structured answer · One point per slide · Icons optional</div>
+          <div class="brief-item"><span class="brief-key">Last slide</span>ALWAYS: "وثّق هذا رسمياً مع مالورا" + malora.ai + Emerald background</div>
+          <div class="brief-item"><span class="brief-key">Tip</span>Design the template shell once — swap text only each week</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATE B -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">TEMPLATE B</span>
+      <div class="post-meta">
+        <span>Every Thursday · 8:00 AM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">LinkedIn + Instagram Stories</span>
+        <span class="post-meta-sep">|</span>
+        <span>Repeating founder series</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-islam">👤 Islam</span>
+        <span class="lang-badge">🌐 English</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text">Building Malora — Week X</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Topics</div></div>
+        <div class="post-content">
+          <p style="font-size:13px; color:var(--gray-500); margin-bottom:10px;">Rotate these weekly:</p>
+          <p class="caption-en">— How I chose the first service to launch
+— The moment I knew the idea would work
+— What was wrong in version 1 and how I fixed it
+— How to work with AI as a non-technical founder
+— What the first 10 clients actually said</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-en">Follow along — drop your question below 👇</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief</div>
+          <div class="brief-item"><span class="brief-key">Type</span>Minimal — natural photo of Islam + text post. No heavy graphic design.</div>
+          <div class="brief-item"><span class="brief-key">Photo</span>Candid, workspace, or thinking moment — authentic</div>
+          <div class="brief-item"><span class="brief-key">Overlay</span>Optional: short phrase from the post in white on slight dark overlay</div>
+          <div class="brief-item"><span class="brief-key">Mood</span>Raw and real — builds long-term relationship with audience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TEMPLATE C -->
+  <div class="post-card">
+    <div class="post-header">
+      <span class="post-num">TEMPLATE C</span>
+      <div class="post-meta">
+        <span>Every Friday · 12:00 PM</span>
+        <span class="post-meta-sep">|</span>
+        <span class="post-platform">Instagram + Facebook</span>
+        <span class="post-meta-sep">|</span>
+        <span>Weekly direct promo</span>
+        <span class="post-meta-sep">|</span>
+        <span class="account-badge account-malora">🟢 Malora</span>
+        <span class="lang-badge">🇪🇬 Arabic</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="post-row row-hook">
+        <div class="post-label"><div class="post-label-text">Hook</div></div>
+        <div class="post-content"><p class="hook-text-ar">دراسة جدوى احترافية — جاهزة لبنكك — في أقل من 10 دقائق</p></div>
+      </div>
+      <div class="post-row row-caption">
+        <div class="post-label"><div class="post-label-text">Caption</div></div>
+        <div class="post-content">
+          <p class="caption-ar">لو بتفكر في:
+— قرض بنكي
+— شريك مستثمر
+— جهاز حكومي
+
+محتاج دراسة جدوى على المعيار اللي البنك يقبله.
+
+مالورا تولدها كاملة:
+NPV · IRR · DSCR · إسقاطات مالية 5 سنوات · تحليل تعادل
+
+80+ صفحة · PDF احترافي · من 800 جنيه</p>
+        </div>
+      </div>
+      <div class="post-row row-cta">
+        <div class="post-label"><div class="post-label-text">CTA</div></div>
+        <div class="post-content"><p class="cta-ar">ابدأ الآن — malora.ai 🟢</p></div>
+      </div>
+      <div class="post-row row-brief">
+        <div class="post-label"><div class="post-label-text">Brief</div></div>
+        <div class="post-content">
+          <div class="brief-title">🎨 Design Brief — Design ONCE, reuse every Friday</div>
+          <div class="brief-item"><span class="brief-key">Format</span>1:1 primary · 9:16 story version</div>
+          <div class="brief-item"><span class="brief-key">Layout</span>"Service card" — Obsidian background</div>
+          <div class="brief-item"><span class="brief-key">Left col</span>Feature list with Emerald bullet points</div>
+          <div class="brief-item"><span class="brief-key">Right side</span>Price in large type + "ابدأ الآن" CTA button in Emerald</div>
+          <div class="brief-item"><span class="brief-key">Top</span>Malora logo</div>
+          <div class="brief-item"><span class="brief-key">Tip</span>Only the price or service focus changes each Friday — keep the shell identical</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-hr">
+
+<!-- ══ SECTION 5 — MASTER CALENDAR ════════════════════════ -->
+<section class="section">
+  <div class="section-number">Section 05</div>
+  <h1 class="section-title">Master Calendar</h1>
+  <div class="section-divider"></div>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Date</th>
+        <th>Platform</th>
+        <th>Lang</th>
+        <th>Hook / Title</th>
+        <th>Account</th>
+        <th>Pillar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="td-mono td-green">01</td><td>May 25</td><td class="td-muted">IG+FB+LI</td><td class="td-muted">AR</td><td class="td-bold">Teaser — glowing dot</td><td>Malora</td><td class="td-muted">Suspense</td></tr>
+      <tr><td class="td-mono td-green">02</td><td>May 26</td><td class="td-muted">IG+LI</td><td class="td-muted">AR</td><td class="td-bold">5 reasons bank rejects feasibility study</td><td>Malora</td><td class="td-muted">Education</td></tr>
+      <tr><td class="td-mono td-green">03</td><td>May 27</td><td class="td-muted">LinkedIn</td><td class="td-muted">EN</td><td class="td-bold">I decided to build a tool</td><td>Islam</td><td class="td-muted">Personal Brand</td></tr>
+      <tr><td class="td-mono td-green">04</td><td>May 28</td><td class="td-muted">IG+FB</td><td class="td-muted">AR</td><td class="td-bold">How to calculate company Zakat</td><td>Malora</td><td class="td-muted">Education</td></tr>
+      <tr><td class="td-mono td-green">05</td><td>May 29</td><td class="td-muted">Stories</td><td class="td-muted">AR</td><td class="td-bold">Poll: what matters more?</td><td>Malora</td><td class="td-muted">Engagement</td></tr>
+      <tr><td class="td-mono td-green">06</td><td>May 30</td><td class="td-muted">IG+FB+LI</td><td class="td-muted">AR</td><td class="td-bold">Poll result + first name reveal</td><td>Malora</td><td class="td-muted">Suspense</td></tr>
+      <tr><td class="td-mono td-green">07</td><td>May 31</td><td class="td-muted">IG+FB+LI</td><td class="td-muted">AR</td><td class="td-bold">Tomorrow — MALORA launches (reel)</td><td>Malora</td><td class="td-muted">Suspense</td></tr>
+      <tr style="background:#F0FDF9;"><td class="td-mono td-green">08</td><td><strong>June 1</strong> 9AM</td><td class="td-muted">IG+FB+LI</td><td class="td-muted">AR</td><td class="td-bold" style="color:var(--emerald-dim);">🚀 MALORA — Official Launch</td><td>Malora</td><td class="td-muted">Launch</td></tr>
+      <tr style="background:#F0FDF9;"><td class="td-mono td-green">09</td><td><strong>June 1</strong> 12PM</td><td class="td-muted">LinkedIn</td><td class="td-muted">EN</td><td class="td-bold" style="color:var(--emerald-dim);">🚀 Today I launched MALORA</td><td>Islam</td><td class="td-muted">Personal Brand</td></tr>
+      <tr><td class="td-mono td-green">10</td><td>June 2</td><td class="td-muted">IG+FB</td><td class="td-muted">AR</td><td class="td-bold">Demo — watch it generate a study</td><td>Malora</td><td class="td-muted">Product Proof</td></tr>
+      <tr><td class="td-mono td-green">11</td><td>June 3</td><td class="td-muted">IG+LI</td><td class="td-muted">AR</td><td class="td-bold">This is what a Zakat report looks like</td><td>Malora</td><td class="td-muted">Product Proof</td></tr>
+      <tr><td class="td-mono td-green">12</td><td>June 4</td><td class="td-muted">LI+IG</td><td class="td-muted">EN</td><td class="td-bold">One Man Company method</td><td>Islam</td><td class="td-muted">Course</td></tr>
+      <tr><td class="td-mono td-green">13</td><td>June 5</td><td class="td-muted">LI+IG</td><td class="td-muted">EN</td><td class="td-bold">Zakat in Saudi Arabia — Gulf post</td><td>Malora</td><td class="td-muted">Gulf Market</td></tr>
+      <tr><td class="td-mono td-green">14</td><td>June 7</td><td class="td-muted">IG+FB+LI</td><td class="td-muted">AR</td><td class="td-bold">First client testimonial</td><td>Malora</td><td class="td-muted">Social Proof</td></tr>
+      <tr><td class="td-mono td-green">T-A</td><td>Every Mon</td><td class="td-muted">IG+FB</td><td class="td-muted">AR</td><td class="td-bold">Weekly education series</td><td>Malora</td><td class="td-muted">Education</td></tr>
+      <tr><td class="td-mono td-green">T-B</td><td>Every Thu</td><td class="td-muted">LinkedIn</td><td class="td-muted">EN</td><td class="td-bold">Building Malora — Week X</td><td>Islam</td><td class="td-muted">Personal Brand</td></tr>
+      <tr><td class="td-mono td-green">T-C</td><td>Every Fri</td><td class="td-muted">IG+FB</td><td class="td-muted">AR</td><td class="td-bold">Weekly direct promo</td><td>Malora</td><td class="td-muted">Promotion</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<hr class="section-hr">
+
+<!-- ══ SECTION 6 — DESIGN SYSTEM ══════════════════════════ -->
+<section class="section">
+  <div class="section-number">Section 06</div>
+  <h1 class="section-title">Visual Design System</h1>
+  <div class="section-divider"></div>
+  <p style="color:var(--gray-600); margin-bottom:32px;">Send this section to your designer with every post brief. These rules are non-negotiable.</p>
+
+  <h2 style="font-family:var(--font-display); font-size:20px; color:var(--obsidian); margin-bottom:16px;">Brand Colors</h2>
+  <div class="colors-grid">
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#0B1120;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Obsidian</div>
+        <div class="swatch-hex">#0B1120</div>
+        <div class="swatch-use">Primary background</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#10B981;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Emerald</div>
+        <div class="swatch-hex">#10B981</div>
+        <div class="swatch-use">Accents, CTAs, highlights</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#FFFFFF; border-bottom:1px solid #E5E7EB;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">White</div>
+        <div class="swatch-hex">#FFFFFF</div>
+        <div class="swatch-use">Text on dark backgrounds</div>
+      </div>
+    </div>
+    <div class="color-swatch">
+      <div class="swatch-block" style="background:#F3F4F6;"></div>
+      <div class="swatch-info">
+        <div class="swatch-name">Light Gray</div>
+        <div class="swatch-hex">#F3F4F6</div>
+        <div class="swatch-use">Educational slide backgrounds</div>
+      </div>
+    </div>
+  </div>
+
+  <h2 style="font-family:var(--font-display); font-size:20px; color:var(--obsidian); margin:32px 0 16px;">Design Rules — No Exceptions</h2>
+  <ul class="rules-list">
+    <li>No gradients — flat solid colors only</li>
+    <li>No emoji inside designed graphics — text icons if needed</li>
+    <li>Arabic font: Cairo or Noto Kufi Arabic — standard weight</li>
+    <li>English font: Inter or DM Sans — for names and numbers only</li>
+    <li>Sizes: 1:1 (Instagram feed) · 9:16 (Stories/Reels) · 1.91:1 (LinkedIn)</li>
+    <li>Logo: small corner placement — max 10% of canvas area</li>
+    <li>One CTA per design — never two</li>
+    <li>Arabic text: always right-aligned (RTL)</li>
+    <li>English text: always left-aligned (LTR)</li>
+  </ul>
+
+  <h2 style="font-family:var(--font-display); font-size:20px; color:var(--obsidian); margin:32px 0 16px;">Hashtag Strategy</h2>
+  <div class="hashtag-group">
+    <div class="hashtag-platform">Instagram — Arabic audience</div>
+    <div class="hashtag-list">
+      <span class="hashtag hashtag-ar">#دراسة_جدوى</span>
+      <span class="hashtag hashtag-ar">#زكاة_المال</span>
+      <span class="hashtag hashtag-ar">#ريادة_الأعمال</span>
+      <span class="hashtag hashtag-ar">#مالورا</span>
+      <span class="hashtag hashtag-ar">#ذكاء_اصطناعي</span>
+      <span class="hashtag hashtag-ar">#مصر_للأعمال</span>
+    </div>
+  </div>
+  <div class="hashtag-group">
+    <div class="hashtag-platform">Instagram — Gulf audience</div>
+    <div class="hashtag-list">
+      <span class="hashtag hashtag-ar">#زكاة</span>
+      <span class="hashtag hashtag-ar">#السعودية</span>
+      <span class="hashtag hashtag-ar">#الامارات</span>
+      <span class="hashtag">#ZATCA</span>
+      <span class="hashtag hashtag-ar">#ذكاء_اصطناعي</span>
+    </div>
+  </div>
+  <div class="hashtag-group">
+    <div class="hashtag-platform">LinkedIn — English</div>
+    <div class="hashtag-list">
+      <span class="hashtag">#LegalTech</span>
+      <span class="hashtag">#AI</span>
+      <span class="hashtag">#Egypt</span>
+      <span class="hashtag">#Zakat</span>
+      <span class="hashtag">#FeasibilityStudy</span>
+      <span class="hashtag">#OneManCompany</span>
+      <span class="hashtag">#MENA</span>
+    </div>
+  </div>
+  <p style="font-size:13px; color:var(--gray-500); margin-top:8px;">Rule: 5–8 hashtags maximum per post. Never 20+.</p>
+
+  <h2 style="font-family:var(--font-display); font-size:20px; color:var(--obsidian); margin:32px 0 16px;">Best Posting Times</h2>
+  <div class="time-grid">
+    <div class="time-card">
+      <div class="time-platform">Instagram</div>
+      <div class="time-row"><span class="time-label">Best days: </span>Mon + Wed</div>
+      <div class="time-row"><span class="time-label">Best time: </span>7–9 PM</div>
+      <div class="time-row"><span class="time-label">Best format: </span>Reel + Carousel</div>
+    </div>
+    <div class="time-card">
+      <div class="time-platform">Facebook</div>
+      <div class="time-row"><span class="time-label">Best days: </span>Mon + Fri</div>
+      <div class="time-row"><span class="time-label">Best time: </span>12–2 PM or 7–9 PM</div>
+      <div class="time-row"><span class="time-label">Best format: </span>Video + Image</div>
+    </div>
+    <div class="time-card">
+      <div class="time-platform">LinkedIn</div>
+      <div class="time-row"><span class="time-label">Best days: </span>Tue + Thu</div>
+      <div class="time-row"><span class="time-label">Best time: </span>8–9 AM</div>
+      <div class="time-row"><span class="time-label">Best format: </span>Long text + Carousel</div>
+    </div>
+  </div>
+
+  <h2 style="font-family:var(--font-display); font-size:20px; color:var(--obsidian); margin:32px 0 16px;">Pre-Publishing Checklist</h2>
+  <ul class="checklist">
+    <li><span class="check-box"></span>Does the hook answer: "Why should I keep reading?"</li>
+    <li><span class="check-box"></span>Is there exactly ONE clear CTA?</li>
+    <li><span class="check-box"></span>Does the design work without reading the text?</li>
+    <li><span class="check-box"></span>Are hashtags 5–8 maximum?</li>
+    <li><span class="check-box"></span>Is the bio link updated to the right page?</li>
+    <li><span class="check-box"></span>Is Arabic text spell-checked?</li>
+    <li><span class="check-box"></span>File size within limits? (Instagram video: under 100MB)</li>
+    <li><span class="check-box"></span>For Islam's LinkedIn posts: Malora link in FIRST COMMENT, not post body</li>
+  </ul>
+</section>
+
+<!-- ══ FOOTER ══════════════════════════════════════════════ -->
+<div class="doc-footer">
+  <strong>MALORA</strong>
+  Legal · Tech · Intelligence<br><br>
+  Content Strategy Document · Islam Nour × Malora AI · May 2026
+</div>
+
+</div><!-- /page -->
+</body>
+</html>

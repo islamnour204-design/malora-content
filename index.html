@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0B1120" />
+<title>Malora · خطة المحتوى</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F9FAFB;
+    --obsidian:#0B1120;
+    --obsidian-2:#111827;
+    --emerald:#10B981;
+    --emerald-dark:#059669;
+    --emerald-soft:rgba(16,185,129,0.12);
+    --line:#E5E7EB;
+    --line-2:#F3F4F6;
+    --ink:#111827;
+    --ink-2:#374151;
+    --muted:#6B7280;
+    --muted-2:#9CA3AF;
+    --white:#FFFFFF;
+    --shadow-sm:0 1px 2px rgba(17,24,39,0.04);
+    --shadow-md:0 4px 14px rgba(17,24,39,0.06);
+    --shadow-lg:0 12px 32px rgba(17,24,39,0.08);
+    --radius:14px;
+    --radius-sm:10px;
+    --radius-lg:20px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:'DM Sans','Cairo',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body[dir="rtl"]{font-family:'Cairo','DM Sans',system-ui,sans-serif}
+  h1,h2,h3{margin:0;font-weight:600;letter-spacing:-0.01em}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+  /* ====== HEADER ====== */
+  .header{
+    background:var(--obsidian);
+    color:#fff;
+    padding:28px 20px 36px;
+    position:relative;
+    overflow:hidden;
+  }
+  .header::before{
+    content:"";
+    position:absolute;
+    inset:-40% -10% auto auto;
+    width:520px;height:520px;
+    background:radial-gradient(circle at center,rgba(16,185,129,0.18),rgba(16,185,129,0) 60%);
+    pointer-events:none;
+  }
+  .header-inner{
+    max-width:1180px;
+    margin:0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    position:relative;
+    flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo{
+    width:42px;height:42px;border-radius:12px;
+    background:linear-gradient(135deg,var(--emerald),#34D399);
+    display:flex;align-items:center;justify-content:center;
+    font-family:'DM Serif Display',serif;
+    font-size:22px;color:#0B1120;font-weight:700;
+    box-shadow:0 8px 20px rgba(16,185,129,0.35);
+  }
+  .brand-text{display:flex;flex-direction:column;line-height:1.1}
+  .brand-name{font-family:'DM Serif Display',serif;font-size:22px;letter-spacing:0.02em}
+  .brand-sub{font-size:11px;color:#9CA3AF;letter-spacing:0.18em;text-transform:uppercase;margin-top:4px}
+
+  .title-block{text-align:center;flex:1;min-width:200px}
+  .title-ar{
+    font-family:'Cairo',sans-serif;
+    font-weight:700;
+    font-size:clamp(20px,3.4vw,30px);
+    color:#fff;
+  }
+  .title-month{
+    color:#9CA3AF;
+    font-size:13px;
+    margin-top:6px;
+    letter-spacing:0.04em;
+  }
+  .title-month .em{color:var(--emerald);font-weight:600}
+
+  .live-pill{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 14px;
+    background:rgba(16,185,129,0.12);
+    border:1px solid rgba(16,185,129,0.35);
+    color:#A7F3D0;
+    border-radius:999px;
+    font-size:12px;font-weight:600;letter-spacing:0.06em;
+  }
+  .live-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:var(--emerald);
+    box-shadow:0 0 0 0 rgba(16,185,129,0.6);
+    animation:pulse 1.8s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(16,185,129,0.7)}
+    70%{box-shadow:0 0 0 10px rgba(16,185,129,0)}
+    100%{box-shadow:0 0 0 0 rgba(16,185,129,0)}
+  }
+
+  /* ====== MAIN ====== */
+  .container{
+    max-width:1180px;
+    margin:-22px auto 0;
+    padding:0 20px 80px;
+    position:relative;
+    z-index:2;
+  }
+
+  /* ====== STATS ====== */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+    margin-bottom:22px;
+  }
+  .stat-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 18px;
+    box-shadow:var(--shadow-sm);
+  }
+  .stat-label{
+    font-size:11px;
+    color:var(--muted);
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+  .stat-value{
+    font-family:'DM Serif Display',serif;
+    font-size:34px;
+    color:var(--ink);
+    margin-top:6px;
+    line-height:1;
+  }
+  .stat-card.accent .stat-value{color:var(--emerald)}
+  .stat-foot{font-size:12px;color:var(--muted-2);margin-top:6px}
+
+  /* ====== FILTERS ====== */
+  .filters{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:14px;
+    margin-bottom:22px;
+    box-shadow:var(--shadow-sm);
+    display:flex;flex-wrap:wrap;gap:10px;align-items:center;
+  }
+  .filter-group{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+  .filter-label{
+    font-size:11px;color:var(--muted);
+    font-weight:600;letter-spacing:0.08em;text-transform:uppercase;
+    margin-inline-end:4px;
+  }
+  .chip{
+    padding:7px 13px;
+    border-radius:999px;
+    background:var(--line-2);
+    color:var(--ink-2);
+    font-size:12.5px;font-weight:500;
+    border:1px solid transparent;
+    transition:all .15s ease;
+    white-space:nowrap;
+  }
+  .chip:hover{background:#EAECF0}
+  .chip.active{
+    background:var(--emerald);
+    color:#fff;
+    border-color:var(--emerald-dark);
+    box-shadow:0 4px 10px rgba(16,185,129,0.25);
+  }
+  .filter-divider{width:1px;height:22px;background:var(--line);margin:0 4px}
+
+  /* ====== CARDS ====== */
+  .cards{display:block}
+  .cards .skeleton + .skeleton{margin-top:14px}
+
+  .card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    padding:20px 22px;
+    box-shadow:var(--shadow-sm);
+    transition:box-shadow .2s ease, transform .2s ease;
+    position:relative;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .card:hover{box-shadow:var(--shadow-md)}
+  .card-top{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:10px;flex-wrap:wrap;
+  }
+  .date-block{display:flex;flex-direction:column;gap:2px}
+  .date-day{font-size:12px;color:var(--muted);font-weight:600}
+  .date-full{font-family:'DM Serif Display',serif;font-size:18px;color:var(--ink)}
+
+  .badges{display:flex;gap:6px;flex-wrap:wrap}
+  .badge{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:5px 10px;
+    border-radius:999px;
+    font-size:11px;font-weight:600;
+    letter-spacing:0.02em;
+    border:1px solid transparent;
+  }
+  .badge .b-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+
+  /* platform badges */
+  .p-instagram{background:#FCE7F3;color:#BE185D}
+  .p-linkedin{background:#DBEAFE;color:#1D4ED8}
+  .p-facebook{background:#E0E7FF;color:#3730A3}
+  .p-tiktok{background:#111827;color:#fff}
+
+  /* type badges */
+  .t-organic{background:rgba(16,185,129,0.12);color:#047857}
+  .t-paid{background:#FEF3C7;color:#B45309}
+
+  /* status badges */
+  .s-scheduled{background:#DBEAFE;color:#1D4ED8;border-color:#BFDBFE}
+  .s-in-progress{background:#FEF3C7;color:#B45309;border-color:#FDE68A}
+  .s-done{background:rgba(16,185,129,0.12);color:#047857;border-color:rgba(16,185,129,0.3)}
+  .s-paused{background:#F3F4F6;color:#4B5563;border-color:#E5E7EB}
+
+  .hook{
+    font-family:'Cairo',sans-serif;
+    font-weight:700;
+    font-size:19px;
+    line-height:1.5;
+    color:var(--ink);
+  }
+  .caption-wrap{
+    background:var(--line-2);
+    border-radius:var(--radius-sm);
+    padding:12px 14px;
+    font-family:'Cairo',sans-serif;
+    font-size:14px;
+    line-height:1.8;
+    color:var(--ink-2);
+    position:relative;
+  }
+  .caption-text{
+    max-height:62px;
+    overflow:hidden;
+    transition:max-height .25s ease;
+    white-space:pre-wrap;
+  }
+  .caption-text.open{max-height:1200px}
+  .caption-toggle{
+    margin-top:8px;
+    font-size:12px;
+    color:var(--emerald-dark);
+    font-weight:600;
+    display:inline-flex;align-items:center;gap:4px;
+  }
+  .hashtags{
+    font-size:12.5px;
+    color:#0369A1;
+    font-family:'Cairo',sans-serif;
+    line-height:1.7;
+    word-break:break-word;
+  }
+
+  .brief{
+    background:#FAFBFC;
+    border:1px dashed #D1D5DB;
+    border-radius:var(--radius-sm);
+    padding:12px 14px;
+  }
+  .brief-title{
+    display:flex;align-items:center;gap:6px;
+    font-size:11px;font-weight:700;
+    color:var(--muted);
+    letter-spacing:0.1em;text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .brief-title .icon{
+    width:14px;height:14px;color:var(--emerald);
+  }
+  .brief-text{
+    font-family:'Cairo',sans-serif;
+    font-size:13.5px;
+    line-height:1.7;
+    color:var(--ink-2);
+    white-space:pre-wrap;
+  }
+
+  .card-bottom{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:10px;flex-wrap:wrap;
+    padding-top:12px;
+    border-top:1px solid var(--line-2);
+  }
+  .assignee{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:12.5px;color:var(--ink-2);
+  }
+  .assignee-dot{
+    width:10px;height:10px;border-radius:50%;
+    background:var(--emerald);
+    box-shadow:0 0 0 3px rgba(16,185,129,0.18);
+  }
+  .assignee-name{font-weight:600}
+
+  .status-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:8px 14px;border-radius:999px;
+    font-size:12px;font-weight:600;
+    border:1px solid var(--line);
+    background:#fff;color:var(--ink-2);
+    transition:all .15s ease;
+  }
+  .status-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-sm)}
+  .status-btn .s-dot{width:8px;height:8px;border-radius:50%}
+  .status-btn.s-scheduled .s-dot{background:#3B82F6}
+  .status-btn.s-in-progress .s-dot{background:#F59E0B}
+  .status-btn.s-done .s-dot{background:var(--emerald)}
+  .status-btn.s-paused .s-dot{background:#9CA3AF}
+
+  .admin-actions{
+    display:none;gap:6px;margin-inline-start:8px;
+  }
+  body.admin .admin-actions{display:inline-flex}
+  .icon-btn{
+    width:30px;height:30px;border-radius:8px;
+    display:inline-flex;align-items:center;justify-content:center;
+    background:var(--line-2);color:var(--ink-2);
+    transition:background .15s ease;
+  }
+  .icon-btn:hover{background:#E5E7EB}
+  .icon-btn.danger:hover{background:#FEE2E2;color:#B91C1C}
+
+  /* ====== ADMIN GEAR + MODALS ====== */
+  .gear{
+    position:fixed;
+    bottom:18px;right:18px;
+    width:38px;height:38px;
+    background:var(--obsidian);
+    color:#9CA3AF;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    opacity:0.35;
+    transition:opacity .2s ease,transform .2s ease;
+    z-index:50;
+    box-shadow:var(--shadow-md);
+  }
+  .gear:hover{opacity:1;transform:rotate(45deg);color:var(--emerald)}
+  body.admin .gear{opacity:1;color:var(--emerald)}
+
+  .add-fab{
+    display:none;
+    position:fixed;
+    bottom:18px;left:18px;
+    padding:12px 18px;
+    background:var(--emerald);
+    color:#fff;border-radius:999px;
+    font-weight:600;font-size:13px;
+    align-items:center;gap:8px;
+    box-shadow:0 10px 22px rgba(16,185,129,0.4);
+    z-index:50;
+  }
+  body.admin .add-fab{display:inline-flex}
+
+  .modal-back{
+    position:fixed;inset:0;
+    background:rgba(11,17,32,0.55);
+    backdrop-filter:blur(4px);
+    display:none;
+    align-items:center;justify-content:center;
+    z-index:100;
+    padding:18px;
+  }
+  .modal-back.open{display:flex}
+  .modal{
+    background:#fff;
+    border-radius:var(--radius-lg);
+    width:100%;max-width:560px;
+    max-height:90vh;overflow-y:auto;
+    padding:24px;
+    box-shadow:var(--shadow-lg);
+  }
+  .modal h3{
+    font-family:'Cairo',sans-serif;
+    font-size:18px;margin-bottom:14px;
+    color:var(--ink);
+  }
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px}
+  .field label{
+    font-size:11px;font-weight:600;color:var(--muted);
+    letter-spacing:0.08em;text-transform:uppercase;
+  }
+  .field input,.field textarea,.field select{
+    font-family:'Cairo',sans-serif;
+    font-size:14px;
+    padding:10px 12px;
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    background:#fff;color:var(--ink);
+    width:100%;
+    transition:border-color .15s ease,box-shadow .15s ease;
+    direction:rtl;
+  }
+  .field input:focus,.field textarea:focus,.field select:focus{
+    outline:none;border-color:var(--emerald);
+    box-shadow:0 0 0 3px rgba(16,185,129,0.15);
+  }
+  .field textarea{min-height:80px;resize:vertical;line-height:1.7}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .checks{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+  .check-chip{
+    padding:6px 12px;border-radius:999px;
+    background:var(--line-2);color:var(--ink-2);
+    font-size:12px;font-weight:500;cursor:pointer;
+    border:1px solid transparent;
+  }
+  .check-chip.on{background:var(--emerald);color:#fff;border-color:var(--emerald-dark)}
+  .modal-actions{
+    display:flex;justify-content:flex-end;gap:8px;margin-top:18px;
+  }
+  .btn{
+    padding:10px 18px;border-radius:var(--radius-sm);
+    font-size:13px;font-weight:600;
+    transition:all .15s ease;
+  }
+  .btn-primary{background:var(--emerald);color:#fff}
+  .btn-primary:hover{background:var(--emerald-dark)}
+  .btn-ghost{background:var(--line-2);color:var(--ink-2)}
+  .btn-ghost:hover{background:#E5E7EB}
+
+  /* ====== TABS ====== */
+  .tabs{
+    display:flex;
+    gap:4px;
+    margin-bottom:22px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:5px;
+    box-shadow:var(--shadow-sm);
+  }
+  .tab{
+    flex:1;
+    padding:11px 16px;
+    font-family:'Cairo',sans-serif;
+    font-size:14px;
+    font-weight:600;
+    color:var(--muted);
+    border-radius:10px;
+    text-align:center;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    transition:all .15s ease;
+  }
+  .tab:hover{color:var(--ink);background:var(--line-2)}
+  .tab.active{
+    color:#fff;
+    background:var(--emerald);
+    box-shadow:0 2px 8px rgba(16,185,129,0.25);
+  }
+  .tab svg{width:15px;height:15px}
+
+  /* ====== RHYTHM GRID ====== */
+  .rhythm-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  @media(min-width:900px){.rhythm-grid{grid-template-columns:1fr 1fr}}
+  .rhythm-empty-hero{
+    text-align:center;padding:60px 24px;
+    background:#fff;border:1px dashed var(--line);
+    border-radius:var(--radius-lg);
+    color:var(--muted);
+  }
+  .rhythm-empty-hero h4{
+    font-family:'DM Serif Display',serif;
+    font-size:22px;color:var(--ink);
+    margin-bottom:8px;
+  }
+  .rhythm-empty-hero p{font-size:14px;line-height:1.7;max-width:380px;margin:0 auto}
+
+  /* hide content-only UI when on rhythm tab */
+  body.on-rhythm #importBtn{display:none !important}
+
+  /* ====== POSTED BY BADGE ====== */
+  .pb-malora{
+    background:rgba(16,185,129,0.12);
+    color:#047857;
+    border:1px solid rgba(16,185,129,0.25);
+  }
+  .pb-islam{
+    background:#EEF2FF;
+    color:#3730A3;
+    border:1px solid #C7D2FE;
+  }
+
+  /* ====== CAPTION HEADER + COPY ====== */
+  .caption-head{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:8px;margin-bottom:6px;
+  }
+  .caption-head-label{
+    font-size:10px;font-weight:700;letter-spacing:0.12em;
+    color:var(--muted);text-transform:uppercase;
+  }
+  .copy-btn{
+    display:inline-flex;align-items:center;gap:4px;
+    padding:4px 9px;border-radius:8px;
+    font-size:11px;font-weight:600;
+    background:#fff;color:var(--ink-2);
+    border:1px solid var(--line);
+    transition:all .15s ease;
+  }
+  .copy-btn:hover{background:var(--emerald-soft);color:var(--emerald-dark);border-color:var(--emerald)}
+  .copy-btn.copied{background:var(--emerald);color:#fff;border-color:var(--emerald-dark)}
+  .copy-btn svg{width:11px;height:11px}
+
+  /* ====== REFERENCE IMAGE ====== */
+  .ref-image{
+    display:block;
+    width:100%;
+    max-height:200px;
+    object-fit:cover;
+    border-radius:var(--radius-sm);
+    border:1px solid var(--line);
+    background:var(--line-2);
+  }
+  .ref-image-label{
+    font-size:10px;font-weight:700;letter-spacing:0.12em;
+    color:var(--muted);text-transform:uppercase;margin-bottom:6px;
+    display:flex;align-items:center;gap:5px;
+  }
+
+  /* ====== DESIGNER NOTES ====== */
+  .notes-block{
+    background:#FFFBEB;
+    border:1px solid #FDE68A;
+    border-radius:var(--radius-sm);
+    padding:10px 12px;
+  }
+  .notes-label{
+    font-size:10px;font-weight:700;letter-spacing:0.12em;
+    color:#92400E;text-transform:uppercase;
+    margin-bottom:6px;
+    display:flex;align-items:center;gap:5px;
+  }
+  .notes-textarea{
+    width:100%;
+    min-height:38px;
+    border:none;
+    background:transparent;
+    font-family:'Cairo',sans-serif;
+    font-size:13px;
+    line-height:1.6;
+    color:#78350F;
+    resize:vertical;
+    padding:0;
+    direction:rtl;
+  }
+  .notes-textarea:focus{outline:none}
+  .notes-textarea::placeholder{color:#D6A668;font-style:italic}
+  .notes-saving{
+    font-size:10px;color:#92400E;opacity:0;
+    transition:opacity .2s ease;
+    margin-inline-start:auto;
+  }
+  .notes-saving.show{opacity:1}
+
+  /* ====== WEEK GROUPS ====== */
+  .weeks{display:flex;flex-direction:column;gap:24px}
+  .week{display:flex;flex-direction:column;gap:14px}
+  .week-header{
+    display:flex;align-items:center;gap:12px;
+    padding:14px 18px;
+    background:var(--white);
+    border:1px solid var(--line);
+    border-inline-start:4px solid var(--emerald);
+    border-radius:var(--radius);
+    cursor:pointer;
+    transition:box-shadow .15s ease;
+    flex-wrap:wrap;
+  }
+  .week-header:hover{box-shadow:var(--shadow-sm)}
+  .week-chevron{
+    width:22px;height:22px;
+    display:inline-flex;align-items:center;justify-content:center;
+    color:var(--muted);
+    transition:transform .2s ease;
+  }
+  .week.collapsed .week-chevron{transform:rotate(-90deg)}
+  .week-title{
+    font-family:'DM Serif Display',serif;
+    font-size:17px;color:var(--ink);
+  }
+  .week-range{
+    font-size:12.5px;color:var(--muted);font-weight:500;
+  }
+  .week-stats{
+    margin-inline-start:auto;
+    display:flex;gap:10px;flex-wrap:wrap;
+    font-size:11.5px;color:var(--ink-2);
+  }
+  .week-stat{
+    display:inline-flex;align-items:center;gap:5px;
+    padding:3px 9px;border-radius:999px;
+    background:var(--line-2);
+    font-weight:600;
+  }
+  .week-stat .dot{width:6px;height:6px;border-radius:50%}
+  .week-stat.total .dot{background:var(--ink)}
+  .week-stat.done .dot{background:var(--emerald)}
+  .week-cards{
+    display:grid;grid-template-columns:1fr;gap:14px;
+    transition:max-height .25s ease,opacity .2s ease;
+  }
+  @media(min-width:900px){.week-cards{grid-template-columns:1fr 1fr}}
+  .week.collapsed .week-cards{display:none}
+
+  /* ====== DATE RANGE FILTER ====== */
+  .date-range{
+    display:flex;align-items:center;gap:6px;
+  }
+  .date-range input{
+    font-family:'DM Sans',sans-serif;
+    font-size:12px;
+    padding:6px 10px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    color:var(--ink-2);
+    background:#fff;
+  }
+  .date-range input:focus{outline:none;border-color:var(--emerald);box-shadow:0 0 0 3px rgba(16,185,129,0.15)}
+  .date-range .dash{color:var(--muted-2);font-size:12px}
+  .clear-dates{
+    font-size:11px;color:var(--muted);
+    padding:4px 8px;border-radius:6px;
+    background:transparent;
+  }
+  .clear-dates:hover{color:var(--ink);background:var(--line-2)}
+
+  /* ====== TOAST ====== */
+  .toast{
+    position:fixed;
+    bottom:80px;
+    left:50%;
+    transform:translateX(-50%) translateY(20px);
+    background:var(--obsidian);
+    color:#fff;
+    padding:12px 22px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    box-shadow:var(--shadow-lg);
+    opacity:0;
+    pointer-events:none;
+    transition:all .25s ease;
+    z-index:200;
+    display:flex;align-items:center;gap:8px;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .toast.success{background:var(--emerald)}
+  .toast.error{background:#DC2626}
+
+  /* ====== IMPORT MODAL ====== */
+  .import-textarea{
+    width:100%;
+    min-height:280px;
+    font-family:'Courier New',monospace;
+    font-size:12px;
+    padding:14px;
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    background:#FAFBFC;
+    color:var(--ink);
+    line-height:1.5;
+    direction:ltr;
+    resize:vertical;
+  }
+  .import-textarea:focus{outline:none;border-color:var(--emerald);box-shadow:0 0 0 3px rgba(16,185,129,0.15)}
+  .import-help{
+    font-size:12px;color:var(--muted);
+    background:var(--line-2);
+    padding:10px 12px;border-radius:var(--radius-sm);
+    line-height:1.6;
+    margin-bottom:10px;
+  }
+  .import-help code{
+    background:#fff;padding:1px 5px;border-radius:4px;
+    font-size:11px;color:var(--ink);
+  }
+
+  /* ====== EMPTY & LOADING ====== */
+  .empty{
+    text-align:center;padding:48px 20px;
+    color:var(--muted);
+    background:#fff;border:1px dashed var(--line);
+    border-radius:var(--radius);
+  }
+  .skeleton{
+    background:linear-gradient(90deg,#F3F4F6,#E5E7EB,#F3F4F6);
+    background-size:200% 100%;
+    animation:shimmer 1.4s infinite linear;
+    border-radius:var(--radius);
+    height:160px;
+  }
+  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+  /* ====== FOOTER ====== */
+  .footer{
+    margin-top:48px;text-align:center;
+    padding:24px 20px;
+    color:var(--muted);
+    font-size:12.5px;
+    border-top:1px solid var(--line);
+  }
+  .footer a{color:var(--emerald-dark);text-decoration:none;font-weight:600}
+  .footer .sep{margin:0 8px;color:var(--muted-2)}
+
+  /* ====== MOBILE ====== */
+  @media(max-width:640px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .stat-value{font-size:28px}
+    .title-block{order:3;width:100%}
+    .header{padding-bottom:30px}
+    .card{padding:18px}
+    .hook{font-size:17px}
+    .row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== HEADER ====== -->
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <div class="logo">M</div>
+      <div class="brand-text">
+        <span class="brand-name">Malora</span>
+        <span class="brand-sub">Legal Tech Intelligence</span>
+      </div>
+    </div>
+    <div class="title-block">
+      <h1 class="title-ar">خطة المحتوى</h1>
+      <div class="title-month">May 2026 · <span class="em">حملة الإطلاق التسويقية</span></div>
+    </div>
+    <div class="live-pill">
+      <span class="live-dot"></span>
+      <span id="liveLabel">LIVE</span>
+    </div>
+  </div>
+</header>
+
+<!-- ====== MAIN ====== -->
+<main class="container">
+
+  <!-- TABS -->
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-tab="content">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      خطة المحتوى
+    </button>
+    <button class="tab" data-tab="rhythm">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      إيقاع النشر
+    </button>
+  </nav>
+
+  <!-- CONTENT PLAN VIEW -->
+  <div id="contentView">
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="stat-card">
+      <div class="stat-label">Total Posts</div>
+      <div class="stat-value" id="statTotal">0</div>
+      <div class="stat-foot">إجمالي البوستات</div>
+    </div>
+    <div class="stat-card accent">
+      <div class="stat-label">Done</div>
+      <div class="stat-value" id="statDone">0</div>
+      <div class="stat-foot">تم النشر</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">In Progress</div>
+      <div class="stat-value" id="statProgress">0</div>
+      <div class="stat-foot">قيد التنفيذ</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Remaining</div>
+      <div class="stat-value" id="statRemaining">0</div>
+      <div class="stat-foot">المتبقي</div>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="filters">
+    <div class="filter-group">
+      <span class="filter-label">Platform</span>
+      <button class="chip active" data-filter="platform" data-value="all">All</button>
+      <button class="chip" data-filter="platform" data-value="instagram">Instagram</button>
+      <button class="chip" data-filter="platform" data-value="linkedin">LinkedIn</button>
+      <button class="chip" data-filter="platform" data-value="facebook">Facebook</button>
+      <button class="chip" data-filter="platform" data-value="tiktok">TikTok</button>
+    </div>
+    <div class="filter-divider"></div>
+    <div class="filter-group">
+      <span class="filter-label">Status</span>
+      <button class="chip active" data-filter="status" data-value="all">All</button>
+      <button class="chip" data-filter="status" data-value="scheduled">Scheduled</button>
+      <button class="chip" data-filter="status" data-value="in-progress">In Progress</button>
+      <button class="chip" data-filter="status" data-value="done">Done</button>
+      <button class="chip" data-filter="status" data-value="paused">Paused</button>
+    </div>
+    <div class="filter-divider"></div>
+    <div class="filter-group">
+      <span class="filter-label">Type</span>
+      <button class="chip active" data-filter="type" data-value="all">All</button>
+      <button class="chip" data-filter="type" data-value="organic">Organic</button>
+      <button class="chip" data-filter="type" data-value="paid">Paid</button>
+    </div>
+    <div class="filter-divider"></div>
+    <div class="filter-group">
+      <span class="filter-label">Date</span>
+      <div class="date-range">
+        <input type="date" id="dateFrom" title="From" />
+        <span class="dash">—</span>
+        <input type="date" id="dateTo" title="To" />
+        <button class="clear-dates" id="clearDates" title="Clear">مسح</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDS -->
+  <section id="cards" class="cards">
+    <div class="skeleton"></div>
+    <div class="skeleton"></div>
+  </section>
+
+  </div><!-- /contentView -->
+
+  <!-- POSTING RHYTHM VIEW -->
+  <div id="rhythmView" style="display:none">
+    <section id="rhythmCards" class="cards"></section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    Powered by <strong style="color:var(--ink)">Malora</strong>
+    <span class="sep">·</span> Legal Tech Intelligence
+    <span class="sep">·</span> <a href="https://malora.ai" target="_blank" rel="noopener">malora.ai</a>
+  </footer>
+</main>
+
+<!-- ====== GEAR + FAB ====== -->
+<button class="gear" id="gear" title="Admin">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h0a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v0a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+</button>
+<button class="add-fab" id="addBtn">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+  <span id="addBtnLabel">بوست جديد</span>
+</button>
+<button class="add-fab" id="importBtn" style="left:auto;right:18px;background:var(--obsidian);box-shadow:0 10px 22px rgba(11,17,32,0.35)">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+  استيراد الخطة
+</button>
+
+<!-- ====== TOAST ====== -->
+<div class="toast" id="toast"></div>
+
+<!-- ====== PASSWORD MODAL ====== -->
+<div class="modal-back" id="pwModal">
+  <div class="modal" style="max-width:380px">
+    <h3>وضع الإدارة · Admin Mode</h3>
+    <div class="field">
+      <label>Password</label>
+      <input id="pwInput" type="password" placeholder="••••••••••" />
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('pwModal')">إلغاء</button>
+      <button class="btn btn-primary" id="pwSubmit">دخول</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== EDIT MODAL ====== -->
+<div class="modal-back" id="editModal">
+  <div class="modal">
+    <h3 id="editTitle">تعديل البوست</h3>
+    <div class="row">
+      <div class="field">
+        <label>Date</label>
+        <input id="f_date" type="date" />
+      </div>
+      <div class="field">
+        <label>Day (Arabic)</label>
+        <input id="f_day" type="text" placeholder="الإثنين" />
+      </div>
+    </div>
+    <div class="field">
+      <label>Platforms</label>
+      <div class="checks" id="f_platforms">
+        <span class="check-chip" data-v="instagram">Instagram</span>
+        <span class="check-chip" data-v="linkedin">LinkedIn</span>
+        <span class="check-chip" data-v="facebook">Facebook</span>
+        <span class="check-chip" data-v="tiktok">TikTok</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label>Type</label>
+        <select id="f_type">
+          <option value="organic">Organic</option>
+          <option value="paid">Paid</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Status</label>
+        <select id="f_status">
+          <option value="scheduled">Scheduled</option>
+          <option value="in-progress">In Progress</option>
+          <option value="done">Done</option>
+          <option value="paused">Paused</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Posted By</label>
+      <select id="f_postedBy">
+        <option value="malora">🟢 Malora (Brand Account)</option>
+        <option value="islam">👤 Islam (Personal LinkedIn)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>Hook · الفكرة</label>
+      <input id="f_hook" type="text" />
+    </div>
+    <div class="field">
+      <label>Caption · الكابشن</label>
+      <textarea id="f_caption" rows="5"></textarea>
+    </div>
+    <div class="field">
+      <label>Hashtags</label>
+      <input id="f_hashtags" type="text" />
+    </div>
+    <div class="field">
+      <label>Designer Brief · بريف أمر</label>
+      <textarea id="f_brief" rows="4"></textarea>
+    </div>
+    <div class="field">
+      <label>Reference Image URL</label>
+      <input id="f_referenceImage" type="url" placeholder="https://..." dir="ltr" />
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('editModal')">إلغاء</button>
+      <button class="btn btn-primary" id="saveBtn">حفظ</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== RHYTHM MODAL ====== -->
+<div class="modal-back" id="rhythmModal">
+  <div class="modal" style="max-width:480px">
+    <h3 id="rhythmTitle">إيقاع نشر جديد</h3>
+    <div class="row">
+      <div class="field">
+        <label>Day · اليوم</label>
+        <select id="r_day">
+          <option value="الإثنين">الإثنين · Monday</option>
+          <option value="الثلاثاء">الثلاثاء · Tuesday</option>
+          <option value="الأربعاء">الأربعاء · Wednesday</option>
+          <option value="الخميس">الخميس · Thursday</option>
+          <option value="الجمعة">الجمعة · Friday</option>
+          <option value="السبت">السبت · Saturday</option>
+          <option value="الأحد">الأحد · Sunday</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Account · الحساب</label>
+        <select id="r_account">
+          <option value="malora">🟢 Malora (Brand)</option>
+          <option value="islam">👤 Islam (Personal)</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label>Post Format · شكل المنشور</label>
+      <input id="r_format" type="text" placeholder="Carousel · Reel · Story · Article ..." />
+    </div>
+    <div class="field">
+      <label>Notes · ملاحظات</label>
+      <textarea id="r_notes" rows="4" placeholder="فكرة المحتوى، الجمهور المستهدف، أي تفاصيل…"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('rhythmModal')">إلغاء</button>
+      <button class="btn btn-primary" id="rSaveBtn">حفظ</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== IMPORT MODAL ====== -->
+<div class="modal-back" id="importModal">
+  <div class="modal" style="max-width:720px">
+    <h3>استيراد الخطة الشهرية · Import Monthly Plan</h3>
+    <div class="import-help">
+      الصق مصفوفة JSON بالحقول التالية لكل منشور:<br>
+      <code>id</code> <code>date</code> <code>day</code> <code>platforms[]</code> <code>type</code> <code>postedBy</code> <code>hook</code> <code>caption</code> <code>hashtags</code> <code>brief</code> <code>status</code> <code>referenceImage</code>
+    </div>
+    <div class="field">
+      <label>JSON Array</label>
+      <textarea id="importText" class="import-textarea" placeholder='[{"id":"2026-06-01-ig","date":"2026-06-01","day":"الإثنين","platforms":["instagram"],"type":"organic","postedBy":"malora","hook":"...","caption":"...","hashtags":"...","brief":"...","status":"scheduled"}]'></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-ghost" onclick="closeModal('importModal')">إلغاء</button>
+      <button class="btn btn-primary" id="importSubmit">استيراد الخطة</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== FIREBASE + APP ====== -->
+<script type="module">
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+import {
+  getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot, writeBatch, getDocs
+} from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCxR2_FlOp0ildtKDq5OzSZeQzRC9QZ4T0",
+  authDomain: "malora-dashboard.firebaseapp.com",
+  projectId: "malora-dashboard",
+  storageBucket: "malora-dashboard.firebasestorage.app",
+  messagingSenderId: "468263050207",
+  appId: "1:468263050207:web:da9c76191e63a9d315c26a"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const POSTS = collection(db, 'malora_content_v1');
+const RHYTHM = collection(db, 'malora_rhythm_v1');
+// App starts empty — only data from Firebase is shown.
+
+// ====== STATE ======
+let posts = [];
+let rhythm = [];
+let activeTab = 'content';
+let filters = { platform:'all', status:'all', type:'all', from:'', to:'' };
+let collapsedWeeks = new Set();
+let isAdmin = false;
+let editingId = null;
+let editingRhythmId = null;
+const notesTimers = {};
+
+const ARABIC_DAYS = ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
+const DAY_ORDER = {'الإثنين':1,'الثلاثاء':2,'الأربعاء':3,'الخميس':4,'الجمعة':5,'السبت':6,'الأحد':7};
+
+// ====== RENDER ======
+const cardsEl = document.getElementById('cards');
+
+function escapeHtml(s){
+  return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function formatDate(iso){
+  if(!iso) return '';
+  const d = new Date(iso);
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+}
+
+function statusLabel(s){
+  return {
+    'scheduled':'مجدول · Scheduled',
+    'in-progress':'قيد التنفيذ · In Progress',
+    'done':'تم النشر · Done',
+    'paused':'موقوف · Paused'
+  }[s] || s;
+}
+
+function nextStatus(s){
+  return { 'scheduled':'in-progress','in-progress':'done','done':'paused','paused':'scheduled' }[s] || 'scheduled';
+}
+
+function platformLabel(p){
+  return { instagram:'Instagram', linkedin:'LinkedIn', facebook:'Facebook', tiktok:'TikTok' }[p] || p;
+}
+
+function renderStats(){
+  document.getElementById('statTotal').textContent = posts.length;
+  document.getElementById('statDone').textContent = posts.filter(p=>p.status==='done').length;
+  document.getElementById('statProgress').textContent = posts.filter(p=>p.status==='in-progress').length;
+  document.getElementById('statRemaining').textContent = posts.filter(p=>p.status==='scheduled' || p.status==='paused').length;
+}
+
+function applyFilters(list){
+  const from = filters.from || '';
+  const to = filters.to || '';
+  return list.filter(p => {
+    if(filters.platform !== 'all' && !(p.platforms||[]).includes(filters.platform)) return false;
+    if(filters.status !== 'all' && p.status !== filters.status) return false;
+    if(filters.type !== 'all' && p.type !== filters.type) return false;
+    if(from || to){
+      if(!p.date) return false; // exclude undated posts when date range is active
+      if(from && p.date < from) return false;   // posts on or after `from`
+      if(to && p.date > to) return false;        // posts on or before `to`
+    }
+    return true;
+  });
+}
+
+// ---- date helpers (LOCAL time — no toISOString to avoid timezone shifts) ----
+const AR_MONTHS = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+
+function parseLocal(iso){
+  // iso = "YYYY-MM-DD" → Date at local midnight
+  if(!iso) return null;
+  const [y,m,d] = iso.split('-').map(Number);
+  return new Date(y, m-1, d);
+}
+function ymdLocal(d){
+  const y = d.getFullYear();
+  const m = String(d.getMonth()+1).padStart(2,'0');
+  const day = String(d.getDate()).padStart(2,'0');
+  return `${y}-${m}-${day}`;
+}
+
+// Returns Monday of the week containing iso date (as YYYY-MM-DD, local time)
+function weekKey(iso){
+  if(!iso) return 'no-date';
+  const d = parseLocal(iso);
+  const day = d.getDay(); // 0=Sun..6=Sat
+  const diffToMon = (day === 0 ? -6 : 1 - day);
+  d.setDate(d.getDate() + diffToMon);
+  return ymdLocal(d);
+}
+
+function weekRange(mondayIso){
+  const start = parseLocal(mondayIso);
+  if(!start) return '';
+  const end = new Date(start); end.setDate(start.getDate() + 6);
+  const fmt = dt => `${dt.getDate()} ${AR_MONTHS[dt.getMonth()]}`;
+  return `${fmt(start)} — ${fmt(end)}`;
+}
+
+function groupByWeek(list){
+  const groups = {};
+  list.forEach(p => {
+    const k = weekKey(p.date);
+    (groups[k] = groups[k] || []).push(p);
+  });
+  return Object.keys(groups)
+    .sort()
+    .map((key, idx) => ({ key, idx:idx+1, posts: groups[key] }));
+}
+
+function render(){
+  // preserve focused notes textarea (so live updates from other users don't kick the cursor)
+  const active = document.activeElement;
+  let restore = null;
+  if(active && active.classList && active.classList.contains('notes-textarea')){
+    restore = { id: active.dataset.id, start: active.selectionStart, end: active.selectionEnd, value: active.value };
+  }
+
+  renderStats();
+  const list = applyFilters(posts).sort((a,b) => (a.date||'').localeCompare(b.date||''));
+  if(list.length === 0){
+    cardsEl.innerHTML = `<div class="empty">لا توجد بوستات تطابق هذا الفلتر</div>`;
+    return;
+  }
+  const groups = groupByWeek(list);
+  cardsEl.innerHTML = `<div class="weeks">${groups.map(g => weekHTML(g)).join('')}</div>`;
+
+  if(restore){
+    const el = cardsEl.querySelector(`.notes-textarea[data-id="${restore.id}"]`);
+    if(el){
+      if(el.value !== restore.value) el.value = restore.value;
+      el.focus();
+      try{ el.setSelectionRange(restore.start, restore.end); }catch(_){}
+    }
+  }
+
+  // bind events
+  cardsEl.querySelectorAll('[data-action="toggle-week"]').forEach(el=>{
+    el.addEventListener('click', () => {
+      const key = el.dataset.key;
+      if(collapsedWeeks.has(key)) collapsedWeeks.delete(key);
+      else collapsedWeeks.add(key);
+      el.closest('.week').classList.toggle('collapsed');
+    });
+  });
+  cardsEl.querySelectorAll('[data-action="toggle-caption"]').forEach(el=>{
+    el.addEventListener('click', () => {
+      const id = el.dataset.id;
+      const txt = cardsEl.querySelector(`[data-caption="${id}"]`);
+      txt.classList.toggle('open');
+      el.textContent = txt.classList.contains('open') ? 'إخفاء الكابشن ↑' : 'عرض الكابشن كاملاً ↓';
+    });
+  });
+  cardsEl.querySelectorAll('[data-action="cycle-status"]').forEach(el=>{
+    el.addEventListener('click', () => cycleStatus(el.dataset.id));
+  });
+  cardsEl.querySelectorAll('[data-action="edit"]').forEach(el=>{
+    el.addEventListener('click', () => openEdit(el.dataset.id));
+  });
+  cardsEl.querySelectorAll('[data-action="delete"]').forEach(el=>{
+    el.addEventListener('click', () => deletePost(el.dataset.id));
+  });
+  cardsEl.querySelectorAll('[data-action="copy-caption"]').forEach(el=>{
+    el.addEventListener('click', () => copyCaption(el.dataset.id, el));
+  });
+  cardsEl.querySelectorAll('[data-action="save-notes"]').forEach(el=>{
+    el.addEventListener('input', () => scheduleNotesSave(el.dataset.id, el));
+    el.addEventListener('blur', () => flushNotesSave(el.dataset.id, el));
+  });
+}
+
+function weekHTML(group){
+  const total = group.posts.length;
+  const done = group.posts.filter(p => p.status === 'done').length;
+  const collapsed = collapsedWeeks.has(group.key) ? 'collapsed' : '';
+  return `
+  <section class="week ${collapsed}">
+    <header class="week-header" data-action="toggle-week" data-key="${group.key}">
+      <span class="week-chevron">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </span>
+      <span class="week-title">Week ${group.idx}</span>
+      <span class="week-range">${weekRange(group.key)}</span>
+      <span class="week-stats">
+        <span class="week-stat total"><span class="dot"></span>${total} منشور</span>
+        <span class="week-stat done"><span class="dot"></span>${done} منجزة</span>
+      </span>
+    </header>
+    <div class="week-cards">
+      ${group.posts.map(p => cardHTML(p)).join('')}
+    </div>
+  </section>`;
+}
+
+function cardHTML(p){
+  const platformBadges = (p.platforms||[]).map(pl => `<span class="badge p-${pl}"><span class="b-dot"></span>${platformLabel(pl)}</span>`).join('');
+  const typeBadge = p.type === 'paid'
+    ? `<span class="badge t-paid">Paid · مموّل</span>`
+    : `<span class="badge t-organic">Organic · عضوي</span>`;
+  const postedBy = p.postedBy || 'malora';
+  const postedByBadge = postedBy === 'islam'
+    ? `<span class="badge pb-islam">👤 Islam</span>`
+    : `<span class="badge pb-malora">🟢 Malora</span>`;
+  const refImg = p.referenceImage ? `
+    <div>
+      <div class="ref-image-label">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+        Reference · مرجع بصري
+      </div>
+      <a href="${escapeHtml(p.referenceImage)}" target="_blank" rel="noopener">
+        <img class="ref-image" src="${escapeHtml(p.referenceImage)}" alt="reference" loading="lazy" onerror="this.style.display='none'"/>
+      </a>
+    </div>` : '';
+  return `
+  <article class="card">
+    <div class="card-top">
+      <div class="date-block">
+        <span class="date-day">${escapeHtml(p.day || '')}</span>
+        <span class="date-full">${formatDate(p.date)}</span>
+      </div>
+      <div class="badges">${postedByBadge}${platformBadges}${typeBadge}</div>
+    </div>
+    <div class="hook">${escapeHtml(p.hook || '')}</div>
+    <div class="caption-wrap">
+      <div class="caption-head">
+        <span class="caption-head-label">Caption · كابشن</span>
+        <button class="copy-btn" data-action="copy-caption" data-id="${p.id}" title="نسخ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span class="copy-label">نسخ</span>
+        </button>
+      </div>
+      <div class="caption-text" data-caption="${p.id}">${escapeHtml(p.caption || '')}</div>
+      <button class="caption-toggle" data-action="toggle-caption" data-id="${p.id}">عرض الكابشن كاملاً ↓</button>
+    </div>
+    ${p.hashtags ? `<div class="hashtags">${escapeHtml(p.hashtags)}</div>` : ''}
+    ${refImg}
+    ${p.brief ? `
+    <div class="brief">
+      <div class="brief-title">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="6" cy="6" r="2"/></svg>
+        Designer Brief · بريف أمر
+      </div>
+      <div class="brief-text">${escapeHtml(p.brief)}</div>
+    </div>` : ''}
+    <div class="notes-block">
+      <div class="notes-label">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        ملاحظات المصمم · Designer Notes
+        <span class="notes-saving" data-saving="${p.id}">حفظ…</span>
+      </div>
+      <textarea class="notes-textarea" data-action="save-notes" data-id="${p.id}" placeholder="اكتب ملاحظاتك أو أسئلتك هنا…">${escapeHtml(p.notes || '')}</textarea>
+    </div>
+    <div class="card-bottom">
+      <div class="assignee">
+        <span class="assignee-dot"></span>
+        <span>مُسند إلى</span>
+        <span class="assignee-name">${escapeHtml(p.assignedTo || 'Amr')}</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <button class="status-btn s-${p.status}" data-action="cycle-status" data-id="${p.id}">
+          <span class="s-dot"></span>${statusLabel(p.status)}
+        </button>
+        <span class="admin-actions">
+          <button class="icon-btn" data-action="edit" data-id="${p.id}" title="تعديل">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </button>
+          <button class="icon-btn danger" data-action="delete" data-id="${p.id}" title="حذف">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+          </button>
+        </span>
+      </div>
+    </div>
+  </article>`;
+}
+
+// ====== TOAST ======
+const toastEl = document.getElementById('toast');
+let toastTimer;
+function showToast(msg, kind){
+  toastEl.textContent = msg;
+  toastEl.className = 'toast show' + (kind ? ' ' + kind : '');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toastEl.classList.remove('show'), 2400);
+}
+
+// ====== COPY CAPTION ======
+async function copyCaption(id, btn){
+  const p = posts.find(x => x.id === id);
+  if(!p) return;
+  try{
+    await navigator.clipboard.writeText(p.caption || '');
+    const label = btn.querySelector('.copy-label');
+    const original = label.textContent;
+    label.textContent = 'تم النسخ ✓';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      label.textContent = original;
+      btn.classList.remove('copied');
+    }, 1600);
+  }catch(e){
+    showToast('فشل النسخ', 'error');
+  }
+}
+
+// ====== NOTES (debounced save) ======
+function scheduleNotesSave(id, el){
+  const indicator = cardsEl.querySelector(`[data-saving="${id}"]`);
+  if(indicator) indicator.classList.add('show');
+  clearTimeout(notesTimers[id]);
+  notesTimers[id] = setTimeout(() => flushNotesSave(id, el), 900);
+}
+
+async function flushNotesSave(id, el){
+  clearTimeout(notesTimers[id]);
+  const indicator = cardsEl.querySelector(`[data-saving="${id}"]`);
+  const p = posts.find(x => x.id === id);
+  if(!p) return;
+  const newNotes = el.value;
+  if((p.notes || '') === newNotes){
+    if(indicator) indicator.classList.remove('show');
+    return;
+  }
+  try{
+    await setDoc(doc(POSTS, id), { notes: newNotes }, { merge:true });
+    if(indicator){
+      indicator.textContent = 'محفوظ ✓';
+      setTimeout(() => {
+        indicator.classList.remove('show');
+        indicator.textContent = 'حفظ…';
+      }, 1200);
+    }
+  }catch(e){
+    if(indicator) indicator.textContent = 'فشل ✗';
+    console.error('Notes save failed', e);
+  }
+}
+
+// ====== FIRESTORE ======
+async function cycleStatus(id){
+  const p = posts.find(x => x.id === id);
+  if(!p) return;
+  const next = nextStatus(p.status);
+  // optimistic
+  p.status = next;
+  render();
+  try {
+    await setDoc(doc(POSTS, id), { ...p }, { merge:true });
+  } catch(e){
+    console.error('Status update failed', e);
+    alert('فشل تحديث الحالة — تحقق من الاتصال');
+  }
+}
+
+async function deletePost(id){
+  if(!isAdmin) return;
+  if(!confirm('حذف هذا البوست نهائياً؟')) return;
+  try{
+    await deleteDoc(doc(POSTS, id));
+  }catch(e){ alert('فشل الحذف: '+e.message); }
+}
+
+async function savePost(data){
+  try{
+    await setDoc(doc(POSTS, data.id), data, { merge:true });
+    closeModal('editModal');
+  }catch(e){ alert('فشل الحفظ: '+e.message); }
+}
+
+// Real-time listener
+onSnapshot(POSTS, snap => {
+  posts = snap.docs.map(d => ({ id:d.id, ...d.data() }));
+  render();
+}, err => {
+  console.error('Snapshot error', err);
+  cardsEl.innerHTML = `<div class="empty" style="grid-column:1/-1">
+    تعذّر الاتصال بقاعدة البيانات.<br>
+    <small style="color:var(--muted-2)">Make sure Firestore rules allow read/write.</small>
+  </div>`;
+  document.getElementById('liveLabel').textContent = 'OFFLINE';
+});
+
+// ====== RHYTHM (separate Firestore collection, same CRUD pattern) ======
+const rhythmEl = document.getElementById('rhythmCards');
+
+onSnapshot(RHYTHM, snap => {
+  rhythm = snap.docs.map(d => ({ id:d.id, ...d.data() }));
+  if(activeTab === 'rhythm') renderRhythm();
+}, err => {
+  console.error('Rhythm snapshot error', err);
+});
+
+function rhythmCardHTML(r){
+  const accountBadge = (r.account === 'islam')
+    ? `<span class="badge pb-islam">👤 Islam</span>`
+    : `<span class="badge pb-malora">🟢 Malora</span>`;
+  return `
+  <article class="card">
+    <div class="card-top">
+      <div class="date-block">
+        <span class="date-day">إيقاع أسبوعي · Weekly</span>
+        <span class="date-full">${escapeHtml(r.day || '')}</span>
+      </div>
+      <div class="badges">${accountBadge}</div>
+    </div>
+    ${r.format ? `<div class="hook" style="font-size:17px">${escapeHtml(r.format)}</div>` : ''}
+    ${r.notes ? `
+      <div class="caption-wrap">
+        <div class="caption-head">
+          <span class="caption-head-label">Notes · ملاحظات</span>
+        </div>
+        <div class="caption-text open">${escapeHtml(r.notes)}</div>
+      </div>` : ''}
+    <div class="card-bottom">
+      <div class="assignee">
+        <span class="assignee-dot"></span>
+        <span>إيقاع منتظم</span>
+      </div>
+      <span class="admin-actions">
+        <button class="icon-btn" data-r-action="edit" data-id="${r.id}" title="تعديل">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        </button>
+        <button class="icon-btn danger" data-r-action="delete" data-id="${r.id}" title="حذف">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+        </button>
+      </span>
+    </div>
+  </article>`;
+}
+
+function renderRhythm(){
+  if(rhythm.length === 0){
+    rhythmEl.innerHTML = `
+    <div class="rhythm-empty-hero">
+      <h4>إيقاع النشر</h4>
+      <p>سجّل هنا إيقاعك الأسبوعي المنتظم — أي يوم تنشر، من أي حساب، وأي شكل من المحتوى.</p>
+      ${isAdmin ? '<p style="margin-top:14px;color:var(--emerald-dark)">اضغط زر «+ إيقاع جديد» للبدء.</p>' : '<p style="margin-top:14px;color:var(--muted-2)">القائمة فارغة حالياً.</p>'}
+    </div>`;
+    return;
+  }
+  const sorted = [...rhythm].sort((a,b) => (DAY_ORDER[a.day]||99) - (DAY_ORDER[b.day]||99));
+  rhythmEl.innerHTML = `<div class="rhythm-grid">${sorted.map(rhythmCardHTML).join('')}</div>`;
+  rhythmEl.querySelectorAll('[data-r-action="edit"]').forEach(el => {
+    el.addEventListener('click', () => openRhythmEdit(el.dataset.id));
+  });
+  rhythmEl.querySelectorAll('[data-r-action="delete"]').forEach(el => {
+    el.addEventListener('click', () => deleteRhythm(el.dataset.id));
+  });
+}
+
+function openRhythmEdit(id){
+  editingRhythmId = id;
+  const r = id ? rhythm.find(x => x.id === id) : null;
+  document.getElementById('rhythmTitle').textContent = r ? 'تعديل الإيقاع' : 'إيقاع نشر جديد';
+  document.getElementById('r_day').value = r?.day || 'الإثنين';
+  document.getElementById('r_account').value = r?.account || 'malora';
+  document.getElementById('r_format').value = r?.format || '';
+  document.getElementById('r_notes').value = r?.notes || '';
+  openModal('rhythmModal');
+}
+
+document.getElementById('rSaveBtn').addEventListener('click', async () => {
+  const day = document.getElementById('r_day').value;
+  const account = document.getElementById('r_account').value;
+  const format = document.getElementById('r_format').value.trim();
+  const notes = document.getElementById('r_notes').value.trim();
+  if(!format && !notes){
+    showToast('أضف شكل المنشور أو ملاحظات', 'error');
+    return;
+  }
+  const id = editingRhythmId || `r-${Date.now().toString(36)}`;
+  try{
+    await setDoc(doc(RHYTHM, id), { id, day, account, format, notes }, { merge:true });
+    closeModal('rhythmModal');
+  }catch(e){
+    showToast('فشل الحفظ: '+e.message, 'error');
+  }
+});
+
+async function deleteRhythm(id){
+  if(!isAdmin) return;
+  if(!confirm('حذف هذا الإيقاع نهائياً؟')) return;
+  try{
+    await deleteDoc(doc(RHYTHM, id));
+  }catch(e){ showToast('فشل الحذف: '+e.message, 'error'); }
+}
+
+// ====== TAB SWITCHING ======
+const contentView = document.getElementById('contentView');
+const rhythmView = document.getElementById('rhythmView');
+const addBtnLabel = document.getElementById('addBtnLabel');
+
+document.querySelectorAll('#tabs .tab').forEach(t => {
+  t.addEventListener('click', () => {
+    const tab = t.dataset.tab;
+    if(tab === activeTab) return;
+    activeTab = tab;
+    document.querySelectorAll('#tabs .tab').forEach(x => x.classList.toggle('active', x === t));
+    contentView.style.display = tab === 'content' ? 'block' : 'none';
+    rhythmView.style.display = tab === 'rhythm' ? 'block' : 'none';
+    document.body.classList.toggle('on-rhythm', tab === 'rhythm');
+    addBtnLabel.textContent = tab === 'rhythm' ? 'إيقاع جديد' : 'بوست جديد';
+    if(tab === 'rhythm') renderRhythm();
+    else render();
+  });
+});
+
+// ====== FILTERS UI ======
+document.querySelectorAll('.chip[data-filter]').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const f = chip.dataset.filter, v = chip.dataset.value;
+    filters[f] = v;
+    document.querySelectorAll(`.chip[data-filter="${f}"]`).forEach(c => c.classList.toggle('active', c.dataset.value === v));
+    render();
+  });
+});
+
+const dateFromEl = document.getElementById('dateFrom');
+const dateToEl = document.getElementById('dateTo');
+dateFromEl.addEventListener('change', () => { filters.from = dateFromEl.value; render(); });
+dateToEl.addEventListener('change', () => { filters.to = dateToEl.value; render(); });
+document.getElementById('clearDates').addEventListener('click', () => {
+  dateFromEl.value = ''; dateToEl.value = '';
+  filters.from = ''; filters.to = '';
+  render();
+});
+
+// ====== ADMIN ======
+const gear = document.getElementById('gear');
+const pwModal = document.getElementById('pwModal');
+const pwInput = document.getElementById('pwInput');
+
+gear.addEventListener('click', () => {
+  if(isAdmin){
+    if(confirm('الخروج من وضع الإدارة؟')){
+      isAdmin = false;
+      document.body.classList.remove('admin');
+      if(activeTab === 'rhythm') renderRhythm();
+    }
+  } else {
+    pwInput.value = '';
+    openModal('pwModal');
+    setTimeout(()=>pwInput.focus(), 100);
+  }
+});
+
+document.getElementById('pwSubmit').addEventListener('click', tryPassword);
+pwInput.addEventListener('keydown', e => { if(e.key === 'Enter') tryPassword(); });
+
+function tryPassword(){
+  if(pwInput.value === 'malora2026'){
+    isAdmin = true;
+    document.body.classList.add('admin');
+    closeModal('pwModal');
+    if(activeTab === 'rhythm') renderRhythm();
+  } else {
+    pwInput.style.borderColor = '#EF4444';
+    pwInput.value = '';
+    pwInput.placeholder = 'كلمة المرور خاطئة';
+    setTimeout(()=> pwInput.style.borderColor = '', 1500);
+  }
+}
+
+// ====== EDIT MODAL ======
+const editModal = document.getElementById('editModal');
+document.getElementById('addBtn').addEventListener('click', () => {
+  if(activeTab === 'rhythm') openRhythmEdit(null);
+  else openEdit(null);
+});
+
+function openEdit(id){
+  editingId = id;
+  const p = id ? posts.find(x => x.id === id) : null;
+  document.getElementById('editTitle').textContent = p ? 'تعديل البوست' : 'بوست جديد';
+  document.getElementById('f_date').value = p?.date || '';
+  document.getElementById('f_day').value = p?.day || '';
+  document.getElementById('f_type').value = p?.type || 'organic';
+  document.getElementById('f_status').value = p?.status || 'scheduled';
+  document.getElementById('f_postedBy').value = p?.postedBy || 'malora';
+  document.getElementById('f_hook').value = p?.hook || '';
+  document.getElementById('f_caption').value = p?.caption || '';
+  document.getElementById('f_hashtags').value = p?.hashtags || '';
+  document.getElementById('f_brief').value = p?.brief || '';
+  document.getElementById('f_referenceImage').value = p?.referenceImage || '';
+  const platforms = p?.platforms || [];
+  document.querySelectorAll('#f_platforms .check-chip').forEach(c => {
+    c.classList.toggle('on', platforms.includes(c.dataset.v));
+  });
+  openModal('editModal');
+}
+
+document.querySelectorAll('#f_platforms .check-chip').forEach(c => {
+  c.addEventListener('click', () => c.classList.toggle('on'));
+});
+
+document.getElementById('f_date').addEventListener('change', e => {
+  const d = new Date(e.target.value);
+  if(!isNaN(d.getTime())){
+    document.getElementById('f_day').value = ARABIC_DAYS[d.getDay()];
+  }
+});
+
+// ====== IMPORT PLAN ======
+document.getElementById('importBtn').addEventListener('click', () => {
+  document.getElementById('importText').value = '';
+  openModal('importModal');
+});
+
+document.getElementById('importSubmit').addEventListener('click', async () => {
+  const raw = document.getElementById('importText').value.trim();
+  if(!raw){ showToast('الصق JSON أولاً', 'error'); return; }
+  let parsed;
+  try{
+    parsed = JSON.parse(raw);
+  }catch(e){
+    showToast('JSON غير صالح: ' + e.message, 'error');
+    return;
+  }
+  if(!Array.isArray(parsed)){
+    showToast('يجب أن يكون JSON مصفوفة [ ... ]', 'error');
+    return;
+  }
+  const valid = parsed.filter(p => p && p.date && p.hook);
+  if(valid.length === 0){
+    showToast('لا توجد منشورات صالحة (تحتاج date و hook)', 'error');
+    return;
+  }
+  // Accept "platform" or "platforms", string / array / comma-separated.
+  // Canonical Firebase field is `platforms` (array of lowercase strings) — same as the manual edit form writes and the card renderer reads.
+  const normalizePlatforms = (p) => {
+    const raw = p.platforms !== undefined ? p.platforms : p.platform;
+    if(raw === undefined || raw === null || raw === '') return [];
+    const arr = Array.isArray(raw) ? raw : String(raw).split(',');
+    return arr.map(s => String(s).trim().toLowerCase()).filter(Boolean);
+  };
+  try{
+    // Firestore batch limit is 500 — chunk if larger
+    for(let i = 0; i < valid.length; i += 400){
+      const chunk = valid.slice(i, i + 400);
+      const batch = writeBatch(db);
+      chunk.forEach(p => {
+        const id = p.id || `${p.date}-${Math.random().toString(36).slice(2,8)}`;
+        const data = {
+          id,
+          date: p.date,
+          day: p.day || ARABIC_DAYS[new Date(p.date+'T00:00:00').getDay()] || '',
+          platforms: normalizePlatforms(p),
+          type: p.type || 'organic',
+          status: p.status || 'scheduled',
+          postedBy: p.postedBy || 'malora',
+          hook: p.hook || '',
+          caption: p.caption || '',
+          hashtags: p.hashtags || '',
+          brief: p.brief || '',
+          referenceImage: p.referenceImage || '',
+          notes: p.notes || '',
+          assignedTo: p.assignedTo || 'Amr'
+        };
+        batch.set(doc(POSTS, id), data, { merge:true });
+      });
+      await batch.commit();
+    }
+    closeModal('importModal');
+    showToast(`تم استيراد ${valid.length} منشور`, 'success');
+  }catch(e){
+    showToast('فشل الاستيراد: ' + e.message, 'error');
+  }
+});
+
+document.getElementById('saveBtn').addEventListener('click', () => {
+  const date = document.getElementById('f_date').value;
+  const hook = document.getElementById('f_hook').value.trim();
+  if(!date || !hook){
+    alert('التاريخ والفكرة مطلوبان');
+    return;
+  }
+  const platforms = [...document.querySelectorAll('#f_platforms .check-chip.on')].map(c => c.dataset.v);
+  const existing = editingId ? posts.find(x => x.id === editingId) : null;
+  const data = {
+    id: editingId || `${date}-${Date.now().toString(36)}`,
+    date,
+    day: document.getElementById('f_day').value.trim(),
+    platforms,
+    type: document.getElementById('f_type').value,
+    status: document.getElementById('f_status').value,
+    postedBy: document.getElementById('f_postedBy').value,
+    hook,
+    caption: document.getElementById('f_caption').value,
+    hashtags: document.getElementById('f_hashtags').value,
+    brief: document.getElementById('f_brief').value,
+    referenceImage: document.getElementById('f_referenceImage').value.trim(),
+    notes: existing?.notes || '',
+    assignedTo: "Amr"
+  };
+  savePost(data);
+});
+
+// ====== MODAL HELPERS ======
+window.openModal = id => document.getElementById(id).classList.add('open');
+window.closeModal = id => document.getElementById(id).classList.remove('open');
+document.querySelectorAll('.modal-back').forEach(m => {
+  m.addEventListener('click', e => { if(e.target === m) m.classList.remove('open'); });
+});
+</script>
+
+</body>
+</html>

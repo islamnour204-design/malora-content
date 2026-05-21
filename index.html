@@ -1561,13 +1561,13 @@ function cardHTML(p){
     ${ctaBlock}
     ${p.hashtags ? `<div class="hashtags">${escapeHtml(p.hashtags)}</div>` : ''}
     ${refImg}
-    ${p.brief ? `
+    ${(p.brief || p.designerBrief) ? `
     <div class="brief">
       <div class="brief-title">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="6" cy="6" r="2"/></svg>
         Designer Brief · بريف أمر
       </div>
-      <div class="brief-text">${escapeHtml(p.brief)}</div>
+      <div class="brief-text">${escapeHtml(p.brief || p.designerBrief)}</div>
     </div>` : ''}
     <div class="notes-block">
       <div class="notes-label">
@@ -2054,6 +2054,7 @@ document.getElementById('importSubmit').addEventListener('click', async () => {
       const batch = writeBatch(db);
       chunk.forEach(p => {
         const id = p.id || `${p.date}-${Math.random().toString(36).slice(2,8)}`;
+        const briefValue = p.brief || p.designerBrief || '';
         const data = {
           id,
           date: p.date,
@@ -2066,7 +2067,8 @@ document.getElementById('importSubmit').addEventListener('click', async () => {
           caption: p.caption || '',
           cta: p.cta || '',
           hashtags: p.hashtags || '',
-          brief: p.brief || '',
+          brief: briefValue,
+          designerBrief: briefValue,
           referenceImage: p.referenceImage || '',
           notes: p.notes || '',
           assignedTo: p.assignedTo || 'Amr'

@@ -729,6 +729,199 @@
   .footer a{color:var(--emerald-dark);text-decoration:none;font-weight:600}
   .footer .sep{margin:0 8px;color:var(--muted-2)}
 
+  /* ====== BULK DELETE BAR ====== */
+  .bulk-bar{
+    display:none;
+    position:sticky;
+    top:8px;
+    z-index:20;
+    background:#FEE2E2;
+    border:1px solid #FCA5A5;
+    color:#991B1B;
+    padding:10px 14px;
+    border-radius:var(--radius);
+    margin-bottom:14px;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    box-shadow:var(--shadow-md);
+    flex-wrap:wrap;
+  }
+  body.admin .bulk-bar.show{display:flex}
+  .bulk-bar .count{font-weight:700;font-size:13px;font-family:'Cairo',sans-serif}
+  .bulk-btn{
+    padding:8px 16px;border-radius:var(--radius-sm);
+    background:#DC2626;color:#fff;
+    font-size:13px;font-weight:600;
+    transition:background .15s ease;
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'Cairo',sans-serif;
+  }
+  .bulk-btn:hover{background:#B91C1C}
+  .bulk-clear{
+    padding:6px 12px;border-radius:var(--radius-sm);
+    background:transparent;color:#7F1D1D;
+    font-size:12px;font-weight:600;
+    font-family:'Cairo',sans-serif;
+  }
+  .bulk-clear:hover{background:rgba(127,29,29,0.08)}
+
+  /* ====== CARD CHECKBOX ====== */
+  .card-check{display:none}
+  body.admin .card-check{
+    display:inline-flex;align-items:center;
+    margin-inline-end:6px;
+  }
+  .card-check input{
+    width:18px;height:18px;
+    accent-color:#DC2626;
+    cursor:pointer;
+  }
+  .card.selected{
+    border-color:#FCA5A5;
+    box-shadow:0 0 0 3px rgba(220,38,38,0.12);
+  }
+
+  /* ====== CTA BLOCK ====== */
+  .cta-block{
+    background:rgba(16,185,129,0.08);
+    border:1px solid rgba(16,185,129,0.25);
+    border-radius:var(--radius-sm);
+    padding:10px 14px;
+    display:flex;align-items:center;gap:10px;
+    flex-wrap:wrap;
+  }
+  .cta-label{
+    font-size:10px;font-weight:700;letter-spacing:0.12em;
+    color:var(--emerald-dark);text-transform:uppercase;
+    white-space:nowrap;
+    display:inline-flex;align-items:center;gap:5px;
+  }
+  .cta-text{
+    font-family:'Cairo',sans-serif;
+    font-size:14px;font-weight:600;
+    color:var(--ink);
+    line-height:1.5;
+  }
+
+  /* ====== RHYTHM TABLE ====== */
+  .rhythm-wrap{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    box-shadow:var(--shadow-sm);
+  }
+  .rhythm-table{
+    width:100%;
+    border-collapse:collapse;
+    font-family:'Cairo',sans-serif;
+  }
+  .rhythm-table th{
+    background:var(--line-2);
+    font-size:11px;font-weight:700;
+    letter-spacing:0.08em;
+    color:var(--muted);
+    text-transform:uppercase;
+    text-align:start;
+    padding:12px 14px;
+    border-bottom:1px solid var(--line);
+    white-space:nowrap;
+  }
+  .rhythm-table td{
+    padding:10px 12px;
+    font-size:13.5px;
+    color:var(--ink-2);
+    border-bottom:1px solid var(--line-2);
+    vertical-align:middle;
+  }
+  .rhythm-table tbody tr:last-child td{border-bottom:none}
+  .rhythm-table tbody tr:hover{background:#FBFBFC}
+  .rhythm-table input,
+  .rhythm-table select,
+  .rhythm-table textarea{
+    width:100%;
+    font-family:'Cairo',sans-serif;
+    font-size:13px;
+    padding:7px 9px;
+    border:1px solid var(--line);
+    border-radius:8px;
+    background:#fff;
+    color:var(--ink);
+    direction:rtl;
+    transition:border-color .15s ease,box-shadow .15s ease;
+  }
+  .rhythm-table input:focus,
+  .rhythm-table select:focus,
+  .rhythm-table textarea:focus{
+    outline:none;border-color:var(--emerald);
+    box-shadow:0 0 0 3px rgba(16,185,129,0.15);
+  }
+  .rhythm-table input[type="time"]{direction:ltr;text-align:start}
+  .rhythm-table .row-del{
+    width:30px;height:30px;border-radius:8px;
+    display:inline-flex;align-items:center;justify-content:center;
+    background:var(--line-2);color:#B91C1C;
+    transition:background .15s ease;
+  }
+  .rhythm-table .row-del:hover{background:#FEE2E2}
+  .rhythm-add{
+    padding:12px 16px;
+    background:var(--line-2);
+    border-top:1px solid var(--line);
+    display:none;
+    justify-content:center;
+  }
+  body.admin .rhythm-add{display:flex}
+  .rhythm-add button{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:9px 18px;border-radius:999px;
+    background:var(--emerald);color:#fff;
+    font-size:13px;font-weight:600;
+    transition:background .15s ease;
+    font-family:'Cairo',sans-serif;
+  }
+  .rhythm-add button:hover{background:var(--emerald-dark)}
+  .rhythm-row-saving{
+    display:inline-block;
+    width:6px;height:6px;border-radius:50%;
+    background:var(--emerald);
+    opacity:0;
+    transition:opacity .2s ease;
+    margin-inline-start:6px;
+    vertical-align:middle;
+  }
+  .rhythm-row-saving.show{opacity:1}
+  .rhythm-empty-row td{
+    text-align:center;padding:40px 20px;
+    color:var(--muted);font-size:14px;
+  }
+
+  /* ====== FIREBASE ERROR ====== */
+  .fb-error{
+    background:#FEE2E2;
+    border:1px solid #FCA5A5;
+    border-radius:var(--radius);
+    padding:28px 24px;
+    text-align:center;
+    color:#991B1B;
+  }
+  .fb-error h4{
+    font-family:'Cairo',sans-serif;
+    font-size:17px;font-weight:700;
+    color:#7F1D1D;
+    margin-bottom:10px;
+  }
+  .fb-error p{font-size:13.5px;line-height:1.8;margin:4px 0;color:#991B1B}
+  .fb-error code{
+    background:#fff;padding:2px 6px;border-radius:4px;
+    font-size:11px;color:#7F1D1D;
+    font-family:'Courier New',monospace;
+  }
+
+  /* hide caption toggle since captions are open by default */
+  /* (kept inline behavior — toggle still works if user wants to collapse) */
+
   /* ====== MOBILE ====== */
   @media(max-width:640px){
     .stats{grid-template-columns:repeat(2,1fr)}
@@ -738,6 +931,8 @@
     .card{padding:18px}
     .hook{font-size:17px}
     .row{grid-template-columns:1fr}
+    .rhythm-table th,.rhythm-table td{padding:8px 8px;font-size:12px}
+    .rhythm-table input,.rhythm-table select,.rhythm-table textarea{font-size:12px;padding:6px}
   }
 </style>
 </head>
@@ -844,6 +1039,18 @@
     </div>
   </section>
 
+  <!-- BULK DELETE BAR (admin only) -->
+  <div class="bulk-bar" id="bulkBar">
+    <span class="count">تم تحديد <strong id="bulkCount">0</strong> منشور</span>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <button class="bulk-clear" id="bulkClear">إلغاء التحديد</button>
+      <button class="bulk-btn" id="bulkDelete">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+        حذف المحدد (<span id="bulkBtnCount">0</span>)
+      </button>
+    </div>
+  </div>
+
   <!-- CARDS -->
   <section id="cards" class="cards">
     <div class="skeleton"></div>
@@ -854,7 +1061,27 @@
 
   <!-- POSTING RHYTHM VIEW -->
   <div id="rhythmView" style="display:none">
-    <section id="rhythmCards" class="cards"></section>
+    <div class="rhythm-wrap">
+      <table class="rhythm-table" id="rhythmTable">
+        <thead>
+          <tr>
+            <th>اليوم · Day</th>
+            <th>الحساب · Account</th>
+            <th>الشكل · Format</th>
+            <th>وقت النشر · Posting Time</th>
+            <th>ملاحظات · Notes</th>
+            <th style="width:40px"></th>
+          </tr>
+        </thead>
+        <tbody id="rhythmTableBody"></tbody>
+      </table>
+      <div class="rhythm-add">
+        <button id="rhythmAddRow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          صف جديد · Add Row
+        </button>
+      </div>
+    </div>
   </div>
 
   <!-- FOOTER -->
@@ -953,6 +1180,10 @@
       <textarea id="f_caption" rows="5"></textarea>
     </div>
     <div class="field">
+      <label>CTA · دعوة للإجراء</label>
+      <input id="f_cta" type="text" placeholder="جرّب Malora مجاناً" />
+    </div>
+    <div class="field">
       <label>Hashtags</label>
       <input id="f_hashtags" type="text" />
     </div>
@@ -971,42 +1202,21 @@
   </div>
 </div>
 
-<!-- ====== RHYTHM MODAL ====== -->
-<div class="modal-back" id="rhythmModal">
-  <div class="modal" style="max-width:480px">
-    <h3 id="rhythmTitle">إيقاع نشر جديد</h3>
-    <div class="row">
-      <div class="field">
-        <label>Day · اليوم</label>
-        <select id="r_day">
-          <option value="الإثنين">الإثنين · Monday</option>
-          <option value="الثلاثاء">الثلاثاء · Tuesday</option>
-          <option value="الأربعاء">الأربعاء · Wednesday</option>
-          <option value="الخميس">الخميس · Thursday</option>
-          <option value="الجمعة">الجمعة · Friday</option>
-          <option value="السبت">السبت · Saturday</option>
-          <option value="الأحد">الأحد · Sunday</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Account · الحساب</label>
-        <select id="r_account">
-          <option value="malora">🟢 Malora (Brand)</option>
-          <option value="islam">👤 Islam (Personal)</option>
-        </select>
-      </div>
-    </div>
-    <div class="field">
-      <label>Post Format · شكل المنشور</label>
-      <input id="r_format" type="text" placeholder="Carousel · Reel · Story · Article ..." />
-    </div>
-    <div class="field">
-      <label>Notes · ملاحظات</label>
-      <textarea id="r_notes" rows="4" placeholder="فكرة المحتوى، الجمهور المستهدف، أي تفاصيل…"></textarea>
-    </div>
+<!-- Rhythm rows are edited inline in the table — no modal needed -->
+
+<!-- ====== BULK DELETE CONFIRM MODAL ====== -->
+<div class="modal-back" id="bulkDeleteModal">
+  <div class="modal" style="max-width:420px">
+    <h3>حذف المحدد · Bulk Delete</h3>
+    <p style="font-family:'Cairo',sans-serif;font-size:14px;line-height:1.7;color:var(--ink-2);margin:0 0 8px">
+      هل أنت متأكد من حذف <strong id="bulkConfirmCount">0</strong> منشور؟
+    </p>
+    <p style="font-family:'Cairo',sans-serif;font-size:12.5px;line-height:1.7;color:var(--muted);margin:0">
+      لا يمكن التراجع عن هذا الإجراء.
+    </p>
     <div class="modal-actions">
-      <button class="btn btn-ghost" onclick="closeModal('rhythmModal')">إلغاء</button>
-      <button class="btn btn-primary" id="rSaveBtn">حفظ</button>
+      <button class="btn btn-ghost" onclick="closeModal('bulkDeleteModal')">إلغاء</button>
+      <button class="btn" style="background:#DC2626;color:#fff" id="bulkDeleteConfirm">حذف نهائياً</button>
     </div>
   </div>
 </div>
@@ -1017,7 +1227,7 @@
     <h3>استيراد الخطة الشهرية · Import Monthly Plan</h3>
     <div class="import-help">
       الصق مصفوفة JSON بالحقول التالية لكل منشور:<br>
-      <code>id</code> <code>date</code> <code>day</code> <code>platforms[]</code> <code>type</code> <code>postedBy</code> <code>hook</code> <code>caption</code> <code>hashtags</code> <code>brief</code> <code>status</code> <code>referenceImage</code>
+      <code>id</code> <code>date</code> <code>day</code> <code>platforms[]</code> <code>type</code> <code>postedBy</code> <code>hook</code> <code>caption</code> <code>cta</code> <code>hashtags</code> <code>brief</code> <code>status</code> <code>referenceImage</code>
     </div>
     <div class="field">
       <label>JSON Array</label>
@@ -1046,11 +1256,31 @@ const firebaseConfig = {
   appId: "1:468263050207:web:da9c76191e63a9d315c26a"
 };
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const POSTS = collection(db, 'malora_content_v1');
-const RHYTHM = collection(db, 'malora_rhythm_v1');
+let app, db, POSTS, RHYTHM;
+let firebaseReady = false;
+try {
+  app = initializeApp(firebaseConfig);
+  db = getFirestore(app);
+  POSTS = collection(db, 'malora_content_v1');
+  RHYTHM = collection(db, 'malora_rhythm_v1');
+  firebaseReady = true;
+} catch(e){
+  console.error('Firebase init failed', e);
+}
 // App starts empty — only data from Firebase is shown.
+
+function renderFirebaseError(targetEl, detail){
+  if(!targetEl) return;
+  targetEl.innerHTML = `
+    <div class="fb-error">
+      <h4>تحقق من إعدادات Firebase</h4>
+      <p>تعذّر الاتصال بقاعدة البيانات. تأكد من:</p>
+      <p>• صلاحيات القراءة/الكتابة في Firestore Rules مفعّلة للمجموعة <code>malora_content_v1</code></p>
+      <p>• المشروع <code>malora-dashboard</code> فعّال على Firebase Console</p>
+      <p>• اتصال الإنترنت متاح</p>
+      ${detail ? `<p style="margin-top:10px;font-size:11px;color:var(--muted)"><code>${escapeHtml(detail)}</code></p>` : ''}
+    </div>`;
+}
 
 // ====== STATE ======
 let posts = [];
@@ -1060,8 +1290,9 @@ let filters = { platform:'all', status:'all', type:'all', from:'', to:'' };
 let collapsedWeeks = new Set();
 let isAdmin = false;
 let editingId = null;
-let editingRhythmId = null;
 const notesTimers = {};
+const rhythmTimers = {};
+const selectedIds = new Set();
 
 const ARABIC_DAYS = ["الأحد","الإثنين","الثلاثاء","الأربعاء","الخميس","الجمعة","السبت"];
 const DAY_ORDER = {'الإثنين':1,'الثلاثاء':2,'الأربعاء':3,'الخميس':4,'الجمعة':5,'السبت':6,'الأحد':7};
@@ -1223,6 +1454,30 @@ function render(){
     el.addEventListener('input', () => scheduleNotesSave(el.dataset.id, el));
     el.addEventListener('blur', () => flushNotesSave(el.dataset.id, el));
   });
+  cardsEl.querySelectorAll('[data-action="select-post"]').forEach(el => {
+    el.addEventListener('click', e => e.stopPropagation());
+    el.addEventListener('change', () => {
+      const id = el.dataset.id;
+      if(el.checked) selectedIds.add(id);
+      else selectedIds.delete(id);
+      const card = el.closest('.card');
+      if(card) card.classList.toggle('selected', el.checked);
+      updateBulkBar();
+    });
+  });
+  updateBulkBar();
+}
+
+function updateBulkBar(){
+  const bar = document.getElementById('bulkBar');
+  const count = selectedIds.size;
+  if(count > 0 && isAdmin){
+    bar.classList.add('show');
+    document.getElementById('bulkCount').textContent = count;
+    document.getElementById('bulkBtnCount').textContent = count;
+  } else {
+    bar.classList.remove('show');
+  }
 }
 
 function weekHTML(group){
@@ -1267,12 +1522,27 @@ function cardHTML(p){
         <img class="ref-image" src="${escapeHtml(p.referenceImage)}" alt="reference" loading="lazy" onerror="this.style.display='none'"/>
       </a>
     </div>` : '';
+  const ctaBlock = p.cta ? `
+    <div class="cta-block">
+      <span class="cta-label">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        CTA · دعوة
+      </span>
+      <span class="cta-text">${escapeHtml(p.cta)}</span>
+    </div>` : '';
+  const selected = selectedIds.has(p.id) ? 'selected' : '';
+  const checked = selectedIds.has(p.id) ? 'checked' : '';
   return `
-  <article class="card">
+  <article class="card ${selected}">
     <div class="card-top">
-      <div class="date-block">
-        <span class="date-day">${escapeHtml(p.day || '')}</span>
-        <span class="date-full">${formatDate(p.date)}</span>
+      <div style="display:flex;align-items:center;gap:6px">
+        <label class="card-check" title="تحديد">
+          <input type="checkbox" data-action="select-post" data-id="${p.id}" ${checked} />
+        </label>
+        <div class="date-block">
+          <span class="date-day">${escapeHtml(p.day || '')}</span>
+          <span class="date-full">${formatDate(p.date)}</span>
+        </div>
       </div>
       <div class="badges">${postedByBadge}${platformBadges}${typeBadge}</div>
     </div>
@@ -1285,9 +1555,10 @@ function cardHTML(p){
           <span class="copy-label">نسخ</span>
         </button>
       </div>
-      <div class="caption-text" data-caption="${p.id}">${escapeHtml(p.caption || '')}</div>
-      <button class="caption-toggle" data-action="toggle-caption" data-id="${p.id}">عرض الكابشن كاملاً ↓</button>
+      <div class="caption-text open" data-caption="${p.id}">${escapeHtml(p.caption || '')}</div>
+      <button class="caption-toggle" data-action="toggle-caption" data-id="${p.id}">إخفاء الكابشن ↑</button>
     </div>
+    ${ctaBlock}
     ${p.hashtags ? `<div class="hashtags">${escapeHtml(p.hashtags)}</div>` : ''}
     ${refImg}
     ${p.brief ? `
@@ -1423,114 +1694,192 @@ async function savePost(data){
 }
 
 // Real-time listener
-onSnapshot(POSTS, snap => {
-  posts = snap.docs.map(d => ({ id:d.id, ...d.data() }));
-  render();
-}, err => {
-  console.error('Snapshot error', err);
-  cardsEl.innerHTML = `<div class="empty" style="grid-column:1/-1">
-    تعذّر الاتصال بقاعدة البيانات.<br>
-    <small style="color:var(--muted-2)">Make sure Firestore rules allow read/write.</small>
-  </div>`;
+if(firebaseReady){
+  onSnapshot(POSTS, snap => {
+    posts = snap.docs.map(d => ({ id:d.id, ...d.data() }));
+    // prune selected IDs that no longer exist
+    const existing = new Set(posts.map(p => p.id));
+    for(const id of [...selectedIds]) if(!existing.has(id)) selectedIds.delete(id);
+    render();
+  }, err => {
+    console.error('Snapshot error', err);
+    renderFirebaseError(cardsEl, err && err.message);
+    document.getElementById('liveLabel').textContent = 'OFFLINE';
+    showToast('تحقق من إعدادات Firebase', 'error');
+  });
+} else {
+  renderFirebaseError(cardsEl, 'Firebase init failed');
   document.getElementById('liveLabel').textContent = 'OFFLINE';
-});
+  showToast('تحقق من إعدادات Firebase', 'error');
+}
 
-// ====== RHYTHM (separate Firestore collection, same CRUD pattern) ======
-const rhythmEl = document.getElementById('rhythmCards');
+// ====== RHYTHM (editable table) ======
+const rhythmBodyEl = document.getElementById('rhythmTableBody');
 
-onSnapshot(RHYTHM, snap => {
-  rhythm = snap.docs.map(d => ({ id:d.id, ...d.data() }));
-  if(activeTab === 'rhythm') renderRhythm();
-}, err => {
-  console.error('Rhythm snapshot error', err);
-});
+const DAY_OPTIONS = [
+  { v:'الإثنين',  en:'Monday' },
+  { v:'الثلاثاء', en:'Tuesday' },
+  { v:'الأربعاء', en:'Wednesday' },
+  { v:'الخميس',   en:'Thursday' },
+  { v:'الجمعة',   en:'Friday' },
+  { v:'السبت',    en:'Saturday' },
+  { v:'الأحد',    en:'Sunday' }
+];
 
-function rhythmCardHTML(r){
-  const accountBadge = (r.account === 'islam')
-    ? `<span class="badge pb-islam">👤 Islam</span>`
-    : `<span class="badge pb-malora">🟢 Malora</span>`;
+if(firebaseReady){
+  onSnapshot(RHYTHM, snap => {
+    rhythm = snap.docs.map(d => ({ id:d.id, ...d.data() }));
+    if(activeTab === 'rhythm') renderRhythm();
+  }, err => {
+    console.error('Rhythm snapshot error', err);
+    if(activeTab === 'rhythm'){
+      rhythmBodyEl.innerHTML = `<tr><td colspan="6"><div class="fb-error" style="margin:8px">
+        <h4>تحقق من إعدادات Firebase</h4>
+        <p>تعذّر تحميل إيقاع النشر.</p>
+      </div></td></tr>`;
+    }
+  });
+}
+
+function dayOptionsHtml(selected){
+  return DAY_OPTIONS.map(d =>
+    `<option value="${d.v}" ${d.v === selected ? 'selected' : ''}>${d.v} · ${d.en}</option>`
+  ).join('');
+}
+
+function rhythmRowHTML(r){
+  if(isAdmin){
+    return `
+    <tr data-rid="${r.id}">
+      <td>
+        <select data-r-field="day">${dayOptionsHtml(r.day)}</select>
+      </td>
+      <td>
+        <select data-r-field="account">
+          <option value="malora" ${r.account === 'malora' ? 'selected' : ''}>🟢 Malora</option>
+          <option value="islam" ${r.account === 'islam' ? 'selected' : ''}>👤 Islam</option>
+        </select>
+      </td>
+      <td>
+        <input type="text" data-r-field="format" value="${escapeHtml(r.format || '')}" placeholder="Carousel · Reel ..." />
+      </td>
+      <td>
+        <input type="time" data-r-field="time" value="${escapeHtml(r.time || '')}" />
+      </td>
+      <td>
+        <input type="text" data-r-field="notes" value="${escapeHtml(r.notes || '')}" placeholder="ملاحظات…" />
+      </td>
+      <td>
+        <button class="row-del" data-r-action="delete-row" title="حذف">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/></svg>
+        </button>
+        <span class="rhythm-row-saving" data-r-saving="${r.id}"></span>
+      </td>
+    </tr>`;
+  }
+  const accountLabel = r.account === 'islam' ? '👤 Islam' : '🟢 Malora';
   return `
-  <article class="card">
-    <div class="card-top">
-      <div class="date-block">
-        <span class="date-day">إيقاع أسبوعي · Weekly</span>
-        <span class="date-full">${escapeHtml(r.day || '')}</span>
-      </div>
-      <div class="badges">${accountBadge}</div>
-    </div>
-    ${r.format ? `<div class="hook" style="font-size:17px">${escapeHtml(r.format)}</div>` : ''}
-    ${r.notes ? `
-      <div class="caption-wrap">
-        <div class="caption-head">
-          <span class="caption-head-label">Notes · ملاحظات</span>
-        </div>
-        <div class="caption-text open">${escapeHtml(r.notes)}</div>
-      </div>` : ''}
-    <div class="card-bottom">
-      <div class="assignee">
-        <span class="assignee-dot"></span>
-        <span>إيقاع منتظم</span>
-      </div>
-      <span class="admin-actions">
-        <button class="icon-btn" data-r-action="edit" data-id="${r.id}" title="تعديل">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-        </button>
-        <button class="icon-btn danger" data-r-action="delete" data-id="${r.id}" title="حذف">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
-        </button>
-      </span>
-    </div>
-  </article>`;
+    <tr data-rid="${r.id}">
+      <td>${escapeHtml(r.day || '')}</td>
+      <td>${accountLabel}</td>
+      <td>${escapeHtml(r.format || '—')}</td>
+      <td style="direction:ltr">${escapeHtml(r.time || '—')}</td>
+      <td>${escapeHtml(r.notes || '—')}</td>
+      <td></td>
+    </tr>`;
 }
 
 function renderRhythm(){
-  if(rhythm.length === 0){
-    rhythmEl.innerHTML = `
-    <div class="rhythm-empty-hero">
-      <h4>إيقاع النشر</h4>
-      <p>سجّل هنا إيقاعك الأسبوعي المنتظم — أي يوم تنشر، من أي حساب، وأي شكل من المحتوى.</p>
-      ${isAdmin ? '<p style="margin-top:14px;color:var(--emerald-dark)">اضغط زر «+ إيقاع جديد» للبدء.</p>' : '<p style="margin-top:14px;color:var(--muted-2)">القائمة فارغة حالياً.</p>'}
-    </div>`;
+  if(rhythm.length === 0 && !isAdmin){
+    rhythmBodyEl.innerHTML = `<tr class="rhythm-empty-row"><td colspan="6">
+      القائمة فارغة حالياً.
+    </td></tr>`;
     return;
   }
-  const sorted = [...rhythm].sort((a,b) => (DAY_ORDER[a.day]||99) - (DAY_ORDER[b.day]||99));
-  rhythmEl.innerHTML = `<div class="rhythm-grid">${sorted.map(rhythmCardHTML).join('')}</div>`;
-  rhythmEl.querySelectorAll('[data-r-action="edit"]').forEach(el => {
-    el.addEventListener('click', () => openRhythmEdit(el.dataset.id));
-  });
-  rhythmEl.querySelectorAll('[data-r-action="delete"]').forEach(el => {
-    el.addEventListener('click', () => deleteRhythm(el.dataset.id));
-  });
-}
-
-function openRhythmEdit(id){
-  editingRhythmId = id;
-  const r = id ? rhythm.find(x => x.id === id) : null;
-  document.getElementById('rhythmTitle').textContent = r ? 'تعديل الإيقاع' : 'إيقاع نشر جديد';
-  document.getElementById('r_day').value = r?.day || 'الإثنين';
-  document.getElementById('r_account').value = r?.account || 'malora';
-  document.getElementById('r_format').value = r?.format || '';
-  document.getElementById('r_notes').value = r?.notes || '';
-  openModal('rhythmModal');
-}
-
-document.getElementById('rSaveBtn').addEventListener('click', async () => {
-  const day = document.getElementById('r_day').value;
-  const account = document.getElementById('r_account').value;
-  const format = document.getElementById('r_format').value.trim();
-  const notes = document.getElementById('r_notes').value.trim();
-  if(!format && !notes){
-    showToast('أضف شكل المنشور أو ملاحظات', 'error');
+  if(rhythm.length === 0 && isAdmin){
+    rhythmBodyEl.innerHTML = `<tr class="rhythm-empty-row"><td colspan="6">
+      اضغط «صف جديد» لإضافة أول إيقاع نشر.
+    </td></tr>`;
     return;
   }
-  const id = editingRhythmId || `r-${Date.now().toString(36)}`;
+  const sorted = [...rhythm].sort((a,b) => {
+    const ao = DAY_ORDER[a.day] || 99;
+    const bo = DAY_ORDER[b.day] || 99;
+    if(ao !== bo) return ao - bo;
+    return (a.time || '').localeCompare(b.time || '');
+  });
+  rhythmBodyEl.innerHTML = sorted.map(rhythmRowHTML).join('');
+
+  if(isAdmin){
+    rhythmBodyEl.querySelectorAll('[data-r-field]').forEach(el => {
+      const handler = () => {
+        const tr = el.closest('tr');
+        const rid = tr.dataset.rid;
+        scheduleRhythmSave(rid);
+      };
+      el.addEventListener('change', handler);
+      if(el.tagName === 'INPUT' && el.type !== 'time'){
+        el.addEventListener('input', handler);
+      }
+      el.addEventListener('blur', () => flushRhythmSave(el.closest('tr').dataset.rid));
+    });
+    rhythmBodyEl.querySelectorAll('[data-r-action="delete-row"]').forEach(el => {
+      el.addEventListener('click', () => {
+        const rid = el.closest('tr').dataset.rid;
+        deleteRhythm(rid);
+      });
+    });
+  }
+}
+
+function readRhythmRow(rid){
+  const tr = rhythmBodyEl.querySelector(`tr[data-rid="${rid}"]`);
+  if(!tr) return null;
+  return {
+    id: rid,
+    day: tr.querySelector('[data-r-field="day"]').value,
+    account: tr.querySelector('[data-r-field="account"]').value,
+    format: tr.querySelector('[data-r-field="format"]').value.trim(),
+    time: tr.querySelector('[data-r-field="time"]').value,
+    notes: tr.querySelector('[data-r-field="notes"]').value.trim()
+  };
+}
+
+function scheduleRhythmSave(rid){
+  const ind = rhythmBodyEl.querySelector(`[data-r-saving="${rid}"]`);
+  if(ind) ind.classList.add('show');
+  clearTimeout(rhythmTimers[rid]);
+  rhythmTimers[rid] = setTimeout(() => flushRhythmSave(rid), 600);
+}
+
+async function flushRhythmSave(rid){
+  clearTimeout(rhythmTimers[rid]);
+  const data = readRhythmRow(rid);
+  if(!data) return;
+  const ind = rhythmBodyEl.querySelector(`[data-r-saving="${rid}"]`);
   try{
-    await setDoc(doc(RHYTHM, id), { id, day, account, format, notes }, { merge:true });
-    closeModal('rhythmModal');
+    await setDoc(doc(RHYTHM, rid), data, { merge:true });
+    if(ind){
+      ind.style.background = 'var(--emerald)';
+      setTimeout(() => { if(ind) ind.classList.remove('show'); }, 600);
+    }
   }catch(e){
-    showToast('فشل الحفظ: '+e.message, 'error');
+    if(ind){ ind.style.background = '#DC2626'; }
+    showToast('فشل حفظ الصف: ' + e.message, 'error');
   }
-});
+}
+
+async function addRhythmRow(){
+  if(!isAdmin) return;
+  const id = `r-${Date.now().toString(36)}`;
+  try{
+    await setDoc(doc(RHYTHM, id), {
+      id, day:'الإثنين', account:'malora', format:'', time:'', notes:''
+    });
+  }catch(e){
+    showToast('فشل إضافة الصف: ' + e.message, 'error');
+  }
+}
 
 async function deleteRhythm(id){
   if(!isAdmin) return;
@@ -1540,10 +1889,13 @@ async function deleteRhythm(id){
   }catch(e){ showToast('فشل الحذف: '+e.message, 'error'); }
 }
 
+document.getElementById('rhythmAddRow').addEventListener('click', addRhythmRow);
+
 // ====== TAB SWITCHING ======
 const contentView = document.getElementById('contentView');
 const rhythmView = document.getElementById('rhythmView');
 const addBtnLabel = document.getElementById('addBtnLabel');
+const addBtnEl = document.getElementById('addBtn');
 
 document.querySelectorAll('#tabs .tab').forEach(t => {
   t.addEventListener('click', () => {
@@ -1554,7 +1906,9 @@ document.querySelectorAll('#tabs .tab').forEach(t => {
     contentView.style.display = tab === 'content' ? 'block' : 'none';
     rhythmView.style.display = tab === 'rhythm' ? 'block' : 'none';
     document.body.classList.toggle('on-rhythm', tab === 'rhythm');
-    addBtnLabel.textContent = tab === 'rhythm' ? 'إيقاع جديد' : 'بوست جديد';
+    addBtnLabel.textContent = 'بوست جديد';
+    // Hide the floating "+ بوست جديد" fab on the rhythm tab — table has its own Add Row button
+    addBtnEl.style.display = (tab === 'rhythm') ? 'none' : '';
     if(tab === 'rhythm') renderRhythm();
     else render();
   });
@@ -1590,7 +1944,10 @@ gear.addEventListener('click', () => {
     if(confirm('الخروج من وضع الإدارة؟')){
       isAdmin = false;
       document.body.classList.remove('admin');
+      selectedIds.clear();
+      updateBulkBar();
       if(activeTab === 'rhythm') renderRhythm();
+      else render();
     }
   } else {
     pwInput.value = '';
@@ -1608,6 +1965,7 @@ function tryPassword(){
     document.body.classList.add('admin');
     closeModal('pwModal');
     if(activeTab === 'rhythm') renderRhythm();
+    else render();
   } else {
     pwInput.style.borderColor = '#EF4444';
     pwInput.value = '';
@@ -1619,7 +1977,7 @@ function tryPassword(){
 // ====== EDIT MODAL ======
 const editModal = document.getElementById('editModal');
 document.getElementById('addBtn').addEventListener('click', () => {
-  if(activeTab === 'rhythm') openRhythmEdit(null);
+  if(activeTab === 'rhythm') addRhythmRow();
   else openEdit(null);
 });
 
@@ -1634,6 +1992,7 @@ function openEdit(id){
   document.getElementById('f_postedBy').value = p?.postedBy || 'malora';
   document.getElementById('f_hook').value = p?.hook || '';
   document.getElementById('f_caption').value = p?.caption || '';
+  document.getElementById('f_cta').value = p?.cta || '';
   document.getElementById('f_hashtags').value = p?.hashtags || '';
   document.getElementById('f_brief').value = p?.brief || '';
   document.getElementById('f_referenceImage').value = p?.referenceImage || '';
@@ -1705,6 +2064,7 @@ document.getElementById('importSubmit').addEventListener('click', async () => {
           postedBy: p.postedBy || 'malora',
           hook: p.hook || '',
           caption: p.caption || '',
+          cta: p.cta || '',
           hashtags: p.hashtags || '',
           brief: p.brief || '',
           referenceImage: p.referenceImage || '',
@@ -1741,6 +2101,7 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     postedBy: document.getElementById('f_postedBy').value,
     hook,
     caption: document.getElementById('f_caption').value,
+    cta: document.getElementById('f_cta').value.trim(),
     hashtags: document.getElementById('f_hashtags').value,
     brief: document.getElementById('f_brief').value,
     referenceImage: document.getElementById('f_referenceImage').value.trim(),
@@ -1748,6 +2109,43 @@ document.getElementById('saveBtn').addEventListener('click', () => {
     assignedTo: "Amr"
   };
   savePost(data);
+});
+
+// ====== BULK DELETE ======
+document.getElementById('bulkClear').addEventListener('click', () => {
+  selectedIds.clear();
+  render();
+});
+
+document.getElementById('bulkDelete').addEventListener('click', () => {
+  if(!isAdmin || selectedIds.size === 0) return;
+  document.getElementById('bulkConfirmCount').textContent = selectedIds.size;
+  openModal('bulkDeleteModal');
+});
+
+document.getElementById('bulkDeleteConfirm').addEventListener('click', async () => {
+  if(!isAdmin || selectedIds.size === 0) return;
+  const ids = [...selectedIds];
+  const btn = document.getElementById('bulkDeleteConfirm');
+  btn.disabled = true;
+  btn.textContent = 'جارٍ الحذف…';
+  try{
+    // Firestore batch limit is 500 — chunk if larger
+    for(let i = 0; i < ids.length; i += 400){
+      const chunk = ids.slice(i, i + 400);
+      const batch = writeBatch(db);
+      chunk.forEach(id => batch.delete(doc(POSTS, id)));
+      await batch.commit();
+    }
+    selectedIds.clear();
+    closeModal('bulkDeleteModal');
+    showToast(`تم حذف ${ids.length} منشور`, 'success');
+  }catch(e){
+    showToast('فشل الحذف: ' + e.message, 'error');
+  }finally{
+    btn.disabled = false;
+    btn.textContent = 'حذف نهائياً';
+  }
 });
 
 // ====== MODAL HELPERS ======
